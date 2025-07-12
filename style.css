@@ -1,0 +1,150 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+body, html {
+    height: 100%;
+    background-color: black;
+}
+
+.Container {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    flex-direction: column;           
+}
+
+.Basic {
+    height: 50px;
+    width: 600px;
+    background-color: black;
+    margin-top: 20px;
+    border-radius: 30px;
+    border: 1px solid rgb(109, 108, 108);
+    color:#EDEDED;
+    display: flex;
+    align-items: center;      
+    justify-content: space-evenly;
+
+}
+.Basic a{
+    font-size:large;
+    text-decoration: none;
+    color: inherit;
+    
+}
+.Basic a:hover{
+    background-color: #1A1F25;
+    border-radius: 30px;
+    padding: 10px 15px;
+}
+
+.Container h1{
+    color: #EDEDED;
+    margin-top: 30px;
+    font-size: 50px;
+}
+
+.Container h2 {
+    color: #EDEDED;
+    margin-top: 30px;
+    margin-left: 245px;
+    align-self: flex-start;
+}
+
+
+.Container hr{
+    width: 200px;
+}
+.Container p{
+    color: #808080 ;
+    margin:10px 200px 0 245px;
+}
+
+.links{ 
+    color: #808080 ;
+    font-size: 20px;
+    margin-top: 30px;
+    margin-bottom: 80px;
+}
+
+.links a {
+  position: relative;
+  display: inline-block;
+  font-size: large;
+  text-decoration: none;
+  color: inherit;
+  padding: 5px 15px;
+}
+.links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0%;
+  background-color: #808080; 
+  transition: width 0.3s ease;
+}
+
+.links a:hover::after {
+  width: 100%;
+}
+
+
+
+.skills-container {
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.skills-column {
+  width: 300px;
+}
+
+.skills-column h4 {
+  color: white;
+  font-weight: bold;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #ffffff;
+  padding-bottom: 5px;
+}
+
+.skill {
+  margin-bottom: 20px;
+}
+
+.skill span {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+  color:#808080;
+}
+
+.bar {
+  height: 8px;
+  background-color: #2b2b2b;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.fill {
+  height: 100%;
+  background-color: #cccccc;
+  border-radius: 5px;
+}
+
+.contact p{
+    color: #808080;
+    margin:30px 600px 0 250px;
+}
+
+.contactin{
+    display: flex;
+}
