@@ -18,7 +18,10 @@ body, html {
 }
 
 .Basic {
+
     position: sticky;
+    top: 10px;
+    z-index: 1000;
     height: 50px;
     width: 600px;
     background-color: black;
