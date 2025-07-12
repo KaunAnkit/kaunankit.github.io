@@ -93,7 +93,9 @@ body, html {
 .links a:hover::after {
   width: 100%;
 }
-
+.links a:hover{
+    cursor:pointer;
+}
 
 
 .skills-container {
