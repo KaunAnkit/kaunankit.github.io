@@ -38,8 +38,6 @@
             <p>
                 Beyond technology, I have a deep passion for aviation and the wonders of flight.
             </p>
-
-
             <h2 id="skills">Skills</h2>
             <div class="skills-container">
                 <div class="skills-column">
@@ -109,14 +107,11 @@
             <h2 id="projects">Projects</h2>
                 <h3>Main</h3>
                 <div class="boxContainer">
-                    <a href="https://www.notion.so/Neural-Network-2582a9f7d5bb8006bf46d689859671aa" target="_blank">
-                        <div class="box">
-                            <img src="/Assests/search_engine.png" alt="">
-                            <h5>Search Engine</h5>
-                            <h5>(Tf-IDF)</h5>
-                        </div>
-                    </a>
-                    
+                    <div class="box project-box" id="tfidf-box">
+                        <img src="/Assests/search_engine.png" alt="">
+                        <h5>Search Engine</h5>
+                        <h5>(Tf-IDF)</h5>
+                    </div>
                 </div>
                 <h3>Side Quest</h3>
                 <div class="boxContainer">
@@ -152,7 +147,6 @@
                 </a>
             </div>
             
-            
             <h2 id="contact">Get in touch</h2>
             <div class="contact">
                 <p>
@@ -167,6 +161,28 @@
             </div>
             <hr style="width: 800px; margin:20px 0 60px 0;">
 
+        </div>
+        <div id="projectModal" class="project-modal">
+            <div class="project-modal-content">
+                <span class="close-project-modal">&times;</span>
+                <div class="project-modal-inner">
+                    <img src="/Assests/search_engine.png" alt="TF-IDF Search Engine" class="project-modal-img">
+                    <div class="project-modal-text">
+                        <h2>TF-IDF Search Engine</h2>
+                        <p class="project-description">A distributed search engine built from scratch using TF-IDF ranking. Crawls websites, builds an inverted index, and serves search results through a web interface. Built with Python, Node.js (Express), and MongoDB Atlas to understand classical information retrieval and distributed system design.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/KaunAnkit/tfidf-search-engine" target="_blank" class="btn-link github">
+                                <span class="material-symbols-outlined">code</span>
+                                GitHub
+                            </a>
+                            <a href="https://kaunankit.github.io/tfidf-search-engine/" target="_blank" class="btn-link demo">
+                                <span class="material-symbols-outlined">open_in_new</span>
+                                Try it Yourself
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div id="modal" class="modal">
             <span class="close">&times;</span>
