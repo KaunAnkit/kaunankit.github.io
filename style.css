@@ -1,89 +1,163 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Space Grotesk', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Space Grotesk', sans-serif;
 }
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
-body, html {
-    height: 100%;
-    background-color: black;
+body,
+html {
+  height: 100%;
+  background-color: black;
 }
 
 .Container {
-    display: flex;
-    justify-content: center; 
-    align-items: center;
-    flex-direction: column;           
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* Side-by-Side Hero Layout */
+.hero-flex {
+  display: flex;
+  align-items: flex-start;
+  gap: 60px;
+  margin: 60px auto;
+  max-width: 1100px;
+  width: 90%;
+}
+
+.profile-side {
+  flex: 0 0 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.hero-header-vertical {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.profile-pic {
+  width: 200px;
+  height: 200px;
+  border-radius: 12px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.profile-name {
+  color: #FFFFFF;
+  font-size: 38px;
+  font-weight: 700;
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
+
+.profile-hr {
+  width: 100%;
+  border: none;
+  border-top: 1px solid #333;
+  margin: 20px 0;
+}
+
+.links-vertical {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+}
+
+.links-vertical a {
+  color: #808080;
+  text-decoration: none;
+  font-size: 18px;
+  transition: color 0.2s ease;
+}
+
+.links-vertical a:hover {
+  color: #FFFFFF;
+}
+
+.github-side {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.section-title-side {
+  color: #FFFFFF;
+  font-size: 24px;
+  margin: 0;
+  font-weight: 600;
 }
 
 .Basic {
-
-    position: sticky;
-    top: 10px;
-    z-index: 1000;
-    height: 50px;
-    width: 600px;
-    background-color: black;
-    margin-top: 20px;
-    border-radius: 30px;
-    border: 1px solid rgb(109, 108, 108);
-    color:#EDEDED;
-    display: flex;
-    align-items: center;      
-    justify-content: space-evenly;
-
-}
-.Basic a{
-    font-size:large;
-    text-decoration: none;
-    color: inherit;
-    
-}
-.Basic a:hover{
-    background-color: #1A1F25;
-    border-radius: 30px;
-    padding: 10px 15px;
+  position: sticky;
+  top: 10px;
+  z-index: 1000;
+  height: 50px;
+  width: 600px;
+  background-color: black;
+  margin-top: 20px;
+  border-radius: 30px;
+  border: 1px solid rgb(109, 108, 108);
+  color: #EDEDED;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
-.Container h1{
-    color: #EDEDED;
-    margin-top: 30px;
-    font-size: 50px;
+.Basic a {
+  font-size: large;
+  text-decoration: none;
+  color: inherit;
 }
 
-.Container h2 {
-    color: #EDEDED;
-    margin-top: 30px;
-    margin-left: 245px;
-    align-self: flex-start;
+.Basic a:hover {
+  background-color: #1A1F25;
+  border-radius: 30px;
+  padding: 10px 15px;
 }
 
+.Container h1 {
+  color: #EDEDED;
+  font-size: 45px;
+}
+
+.Container h2,
 .Container h3 {
-    color: #EDEDED;
-    margin-top: 30px;
-    margin-left: 245px;
-    align-self: flex-start;
+  color: #EDEDED;
+  margin-top: 60px;
+  margin-left: max(20px, calc((100% - 1100px)/2));
+  width: 90%;
+  max-width: 1100px;
+  align-self: flex-start;
 }
 
-
-.Container hr{
-    width: 200px;
-}
-.Container p{
-    color: #808080 ;
-    margin:10px 200px 0 245px;
+.Container p {
+  color: #808080;
+  margin: 10px auto 0 auto;
+  width: 90%;
+  max-width: 1100px;
 }
 
-.links{ 
-    color: #808080 ;
-    font-size: 20px;
-    margin-top: 30px;
-    margin-bottom: 80px;
+.links {
+  color: #808080;
+  font-size: 20px;
+  margin: 30px auto 80px auto;
+  width: 90%;
+  max-width: 1100px;
 }
 
 .links a {
@@ -94,6 +168,7 @@ body, html {
   color: inherit;
   padding: 5px 15px;
 }
+
 .links a::after {
   content: "";
   position: absolute;
@@ -101,17 +176,17 @@ body, html {
   bottom: 0;
   height: 2px;
   width: 0%;
-  background-color: #808080; 
+  background-color: #808080;
   transition: width 0.3s ease;
 }
 
 .links a:hover::after {
   width: 100%;
 }
-.links a:hover{
-    cursor:pointer;
-}
 
+.links a:hover {
+  cursor: pointer;
+}
 
 .skills-container {
   margin-top: 50px;
@@ -141,7 +216,7 @@ body, html {
   display: block;
   margin-bottom: 6px;
   font-weight: 500;
-  color:#808080;
+  color: #808080;
 }
 
 .bar {
@@ -157,47 +232,47 @@ body, html {
   border-radius: 5px;
 }
 
-.contact p{
-    color: #808080;
-    margin: 30px auto 20px auto;
-    text-align: center;
-    max-width: 600px;
+.contact p {
+  color: #808080;
+  margin: 30px auto 20px auto;
+  text-align: center;
+  max-width: 600px;
 }
 
 .contact-options {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
 }
 
 .contact-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 15px 20px;
-    background-color: #121212;
-    border-radius: 10px;
-    border: 1px solid #333;
-    text-decoration: none;
-    color: #bdb9b9;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 20px;
+  background-color: #121212;
+  border-radius: 10px;
+  border: 1px solid #333;
+  text-decoration: none;
+  color: #bdb9b9;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .contact-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-    color: #ffffff;
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  color: #ffffff;
 }
 
 .contact-item span {
-    font-size: 24px;
+  font-size: 24px;
 }
 
 .contact-item p {
-    margin: 0;
-    font-size: 16px;
+  margin: 0;
+  font-size: 16px;
 }
 
 .boxContainer {
@@ -304,7 +379,6 @@ body, html {
   color: #bbb;
 }
 
-/* Project Modal Styles */
 .project-modal {
   display: none;
   position: fixed;
@@ -344,6 +418,7 @@ body, html {
     transform: scale(0.8);
     opacity: 0;
   }
+
   to {
     transform: scale(1);
     opacity: 1;
@@ -458,401 +533,197 @@ body, html {
   box-shadow: 0 15px 35px rgba(255, 107, 107, 0.3);
 }
 
-/* GitHub & LeetCode Stats Styles */
-.stats-section {
-  display: flex;
-  gap: 40px;
-  margin: 20px 200px 0 245px;
-  align-self: flex-start;
-  flex-wrap: wrap;
-  flex: 1;
-}
-
-.github-section,
-.leetcode-section {
-  flex: 1;
-  min-width: 320px;
-  background-color: #121212;
-  border-radius: 15px;
-  padding: 25px;
-  border: 1px solid #2d2d2d;
-}
-
-.github-section h3,
-.leetcode-section h3 {
-  color: #ffffff;
-  margin-top: 0;
-  margin-bottom: 20px;
-  font-size: 18px;
-  text-align: center;
+.github-section {
+  width: 100%;
+  margin-top: 30px;
 }
 
 .github-calendar {
-  background-color: #0d1117;
-  padding: 15px;
-  border-radius: 10px;
-  overflow-x: auto;
+  background: linear-gradient(145deg, #0a0909, #161616);
+  border-radius: 12px;
+  padding: 30px;
+  border: 1px solid #333;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  transition: border-color 0.3s ease, transform 0.3s ease;
+  color: #EDEDED !important;
 }
 
-.calendar-grid {
-  display: grid;
-  grid-template-columns: repeat(53, 1fr);
-  gap: 3px;
-  min-width: 100%;
+.github-calendar h3 {
+  color: #EDEDED !important;
 }
 
-.calendar-day {
-  width: 20px;
-  height: 20px;
-  min-width: 20px;
-  border-radius: 3px;
-  background-color: #0d1117;
-  border: 1px solid #30363d;
-  cursor: pointer;
-  transition: all 0.2s ease;
+.github-calendar:hover {
+  border-color: #444;
+  transform: translateY(-2px);
 }
 
-.calendar-day:hover {
-  border-color: #58a6ff;
-  box-shadow: 0 0 8px rgba(88, 166, 255, 0.3);
+/* GitHub Calendar Nuclear Cleanup */
+.github-calendar {
+  color: #EDEDED !important;
 }
 
-.calendar-day.level-0 {
-  background-color: #0d1117;
+/* GitHub Calendar Refinement - Title & Stats */
+.github-calendar .contrib-footer,
+.github-calendar a,
+.github-calendar .contrib-column {
+  display: none !important;
 }
 
-.calendar-day.level-1 {
-  background-color: #0e4429;
+.github-calendar h2,
+.github-calendar h3,
+.github-calendar .contribution-graph>h2,
+.github-calendar .contribution-graph>h3,
+.github-calendar .calendar-graph-title {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
 }
 
-.calendar-day.level-2 {
-  background-color: #006d32;
+.github-calendar {
+  padding: 40px !important;
 }
 
-.calendar-day.level-3 {
-  background-color: #26a641;
+/* Ensure SVG content doesn't clip */
+.github-calendar svg {
+  overflow: visible !important;
 }
 
-.calendar-day.level-4 {
-  background-color: #39d353;
+/* Forceful Label Positioning */
+.github-calendar .wday,
+.github-calendar .day-label,
+.github-calendar text.wday,
+.github-calendar text.ContributionCalendar-label {
+  fill: #AAAAAA !important;
+  font-size: 10px !important;
+  transform: translateX(-30px) !important;
+  /* Push labels even further left */
+  transform-box: fill-box;
 }
 
-.leetcode-stats {
-  background-color: #0d1117;
-  padding: 20px;
-  border-radius: 10px;
+/* Push the main grid group to the right to avoid label overlap */
+.github-calendar svg>g {
+  transform: translate(35, 25) !important;
 }
 
-.leetcode-card {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
+.github-calendar .contrib-column {
+  border: none !important;
+  color: #FFFFFF !important;
+  padding: 15px !important;
 }
 
-.stat-card-simple {
-  background-color: transparent;
-  padding: 15px;
-  border-radius: 8px;
-  text-align: center;
+.github-calendar .contrib-number {
+  color: #58a6ff !important;
+  font-weight: 800 !important;
+  font-size: 28px !important;
+  margin-bottom: 8px !important;
 }
 
-.stat-card-simple h4 {
-  color: #58a6ff;
-  margin: 0 0 12px 0;
-  font-size: 16px;
-  font-weight: 600;
+.github-calendar .text-muted {
+  color: #AAAAAA !important;
+  font-size: 13px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
 }
 
-.stat-card-simple p {
-  color: #808080;
-  font-size: 13px;
-  margin: 12px 0;
-  line-height: 1.4;
+/* Legend Visibility */
+.github-calendar .contrib-legend {
+  display: block !important;
+  color: #808080 !important;
+  font-size: 12px !important;
+  margin-top: 15px !important;
 }
 
-.card-link {
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: #2d2d2d;
-  color: #58a6ff;
-  text-decoration: none;
-  border-radius: 8px;
-  font-size: 13px;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  border: 1px solid #444444;
+.github-calendar .contrib-legend li {
+  color: #555555 !important;
 }
 
-.card-link:hover {
-  background-color: #58a6ff;
-  color: #000000;
-  border-color: #58a6ff;
+/* rgb(109, 108, 108) Calendar Squares */
+.github-calendar rect.ContributionCalendar-day,
+.github-calendar rect.day,
+.github-calendar .calendar-day,
+.github-calendar .ContributionCalendar-day[data-level='0'],
+.github-calendar rect[fill="#ebedf0"],
+.github-calendar rect[fill="#FFEE4A"] {
+  fill: rgb(109, 108, 108) !important;
+  background-color: rgb(109, 108, 108) !important;
+  shape-rendering: crispedges !important;
 }
 
-.stat-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 0;
-  border-bottom: 1px solid #2d2d2d;
+/* Vibrant Green for contributions - matched to screenshot */
+.github-calendar rect[fill="#9be9a8"],
+.github-calendar rect.day[data-count]:not([data-count="0"]),
+.github-calendar .ContributionCalendar-day[data-level='1'] {
+  fill: #0e4429 !important;
 }
 
-.stat-item:last-child {
-  border-bottom: none;
+.github-calendar rect[fill="#40c463"],
+.github-calendar .ContributionCalendar-day[data-level='2'] {
+  fill: #006d32 !important;
 }
 
-.stat-label {
-  color: #808080;
-  font-size: 14px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+.github-calendar rect[fill="#30a14e"],
+.github-calendar .ContributionCalendar-day[data-level='3'] {
+  fill: #26a641 !important;
 }
 
-.stat-value {
-  color: #58a6ff;
-  font-size: 20px;
-  font-weight: 600;
+.github-calendar rect[fill="#216e39"],
+.github-calendar .ContributionCalendar-day[data-level='4'] {
+  fill: #39d353 !important;
 }
 
-.difficulty-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 12px;
-  background-color: #161b22;
-  border-radius: 8px;
-  margin-bottom: 10px;
+/* Legend items should also be vibrant */
+.github-calendar .contrib-legend li[style*="background-color: #9be9a8"],
+.github-calendar .contrib-legend li:nth-child(2) {
+  background-color: #0e4429 !important;
 }
 
-.difficulty-item:last-child {
-  margin-bottom: 0;
+.github-calendar .contrib-legend li[style*="background-color: #40c463"],
+.github-calendar .contrib-legend li:nth-child(3) {
+  background-color: #006d32 !important;
 }
 
-.difficulty-label {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  color: #e6edf3;
-  font-size: 14px;
-  font-weight: 500;
+.github-calendar .contrib-legend li[style*="background-color: #30a14e"],
+.github-calendar .contrib-legend li:nth-child(4) {
+  background-color: #26a641 !important;
 }
 
-.difficulty-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
+.github-calendar .contrib-legend li[style*="background-color: #216e39"],
+.github-calendar .contrib-legend li:nth-child(5) {
+  background-color: #39d353 !important;
 }
 
-.difficulty-dot.easy {
-  background-color: #39d353;
+/* Legend Empty square */
+.github-calendar .contrib-legend li[style*="background-color: #ebedf0"],
+.github-calendar .contrib-legend li:nth-child(1) {
+  background-color: rgb(109, 108, 108) !important;
 }
 
-.difficulty-dot.medium {
-  background-color: #ffa657;
-}
-
-.difficulty-dot.hard {
-  background-color: #ff7675;
-}
-
-.difficulty-count {
-  color: #58a6ff;
-  font-weight: 600;
-  font-size: 16px;
-}
-
-.loading {
-  color: #808080;
-  text-align: center;
-  padding: 20px;
-  font-size: 14px;
-}
 
 @media (max-width: 768px) {
-  .Basic {
-    width: 90%;
-    padding: 10px;
-    font-size: 14px;
-  }
 
-  .Basic a {
-    padding: 5px 10px;
-  }
-
-  .Container h1 {
-    font-size: 40px;
-    margin-top: 20px;
-  }
-
-  .Container h2 {
+  .Container h2,
+  .Container h3,
+  .Container p,
+  .boxContainer,
+  .certificates,
+  .github-calendar,
+  .hero-header {
     margin-left: 20px;
-    text-align: left;
-    font-size: 24px;
-  }
-
-  .Container p {
-    margin: 10px 20px;
-    text-align: left;
-  }
-
-  p[style*="margin-left"] {
-    margin-left: 0 !important;
-    text-align: center;
-  }
-
-  .links {
-    margin-top: 20px;
-    margin-bottom: 40px;
-  }
-
-  .links a {
-    padding: 3px 10px;
-  }
-
-  .skills-container {
-    margin-top: 30px;
-    gap: 20px;
-  }
-
-  .skills-column {
-    width: 100%;
-  }
-
-  .boxContainer {
-    margin: 20px 20px 0 20px;
-    justify-content: center;
-  }
-
-  .box {
-    width: 100%;
-    max-width: 300px;
-  }
-
-  .certificates {
-    margin: 20px 20px 0 20px;
-  }
-
-  .certificates img {
-    width: 100%;
-    max-width: 250px;
-  }
-
-  .contact p {
-    margin: 20px 20px;
-  }
-
-  .contact-options {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .contact-item {
-    width: 100%;
-    max-width: 300px;
-    justify-content: center;
-  }
-
-  .modal-content {
-    max-width: 90%;
-    max-height: 90%;
-  }
-
-  hr {
-    width: 90%;
-    margin: 20px auto;
-  }
-
-  .project-modal-content {
-    width: 95%;
-    padding: 30px 20px;
-    margin: auto;
-  }
-
-  .project-modal-inner {
-    gap: 20px;
-  }
-
-  .project-modal-img {
-    max-width: 100%;
-  }
-
-  .project-modal-text h2 {
-    font-size: 24px;
-  }
-
-  .project-description {
-    font-size: 14px;
-  }
-
-  .btn-link {
-    padding: 10px 16px;
-    font-size: 12px;
-  }
-
-  .stats-section {
-    margin: 20px 20px 0 20px;
-    flex: 1;
-  }
-
-  .github-section,
-  .leetcode-section {
-    flex: 1;
-    min-width: 100%;
-  }
-}
-
-@media (max-width: 480px) {
-  .Container h1 {
-    font-size: 30px;
-  }
-
-  .Container h2 {
-    font-size: 20px;
+    margin-right: 20px;
   }
 
   .Basic {
-    width: 95%;
-    height: auto;
+    width: 90%;
+  }
+
+  .hero-header {
     flex-direction: column;
     align-items: center;
-    padding: 10px;
-    gap: 10px;
-  }
-
-  .Basic a {
-    padding: 8px 12px;
-    font-size: 16px;
-  }
-
-  .box {
-    width: 100%;
-    height: auto;
-    padding: 15px;
-  }
-
-  .box img {
-    height: 50%;
-  }
-
-  .contact-item {
-    padding: 10px 15px;
-  }
-
-  hr {
-    width: 95%;
-    margin: 20px auto;
-  }
-
-  .stats-section {
-    margin: 20px 10px 0 10px;
-    gap: 15px;
-  }
-
-  .github-section,
-  .leetcode-section {
-    min-width: 100%;
-    padding: 20px;
+    text-align: center;
+    align-self: center;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
-
-

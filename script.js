@@ -1,94 +1,121 @@
-const modal = document.getElementById('modal');
-const modalImg = document.getElementById('modal-img');
-const closeBtn = document.getElementsByClassName('close')[0];
+document.addEventListener('DOMContentLoaded', function () {
+    const calendarContainer = document.querySelector('.github-calendar');
+    const projectModal = document.getElementById('projectModal');
+    const closeProjectModal = document.querySelector('.close-project-modal');
+    const projectBox = document.getElementById('tfidf-box');
 
-const projectModal = document.getElementById('projectModal');
-const tfidfBox = document.getElementById('tfidf-box');
-const closeProjectBtn = document.getElementsByClassName('close-project-modal')[0];
+    // --- MODAL LOGIC ---
 
-// Certificate modal functionality
-document.querySelectorAll('.certificates img').forEach(img => {
-    img.onclick = function() {
-        if (modal) {
-            modal.style.display = 'block';
-            modalImg.src = this.src;
+    // Project Modal (Search Engine Tf-IDF)
+    if (projectBox && projectModal) {
+        projectBox.addEventListener('click', () => {
+            projectModal.style.display = 'flex';
+            setTimeout(() => {
+                projectModal.classList.add('show');
+            }, 10);
+        });
+    }
+
+    if (closeProjectModal && projectModal) {
+        closeProjectModal.addEventListener('click', () => {
+            projectModal.classList.remove('show');
+            setTimeout(() => {
+                projectModal.style.display = 'none';
+            }, 300);
+        });
+    }
+
+    // Generic Image Modal (Certificates)
+    const modal = document.getElementById('modal');
+    const modalImg = document.getElementById('modal-img');
+    const closeBtn = document.querySelector('.close');
+    const certificates = document.querySelectorAll('.certificates img');
+
+    certificates.forEach(img => {
+        img.addEventListener('click', () => {
+            if (modal && modalImg) {
+                modal.style.display = "block";
+                modalImg.src = img.src;
+            }
+        });
+    });
+
+    if (closeBtn && modal) {
+        closeBtn.addEventListener('click', () => {
+            modal.style.display = "none";
+        });
+    }
+
+    // Close Modals on Window Click
+    window.addEventListener('click', (event) => {
+        if (event.target === projectModal) {
+            projectModal.classList.remove('show');
+            setTimeout(() => {
+                projectModal.style.display = 'none';
+            }, 300);
+        }
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    });
+
+    // --- CALENDAR LOGIC (Nuclear Fix) ---
+
+    // Observer to fix SVG, remove titles, and lock colors
+    const observer = new MutationObserver(() => {
+        // PHYSICALLY REMOVE titles to ensure they don't reappear
+        const titles = calendarContainer.querySelectorAll('h2, h3, .calendar-graph-title, .f4, .contribution-graph > h2, .contribution-graph > h3');
+        titles.forEach(t => t.remove());
+
+        const svg = calendarContainer.querySelector('svg');
+        if (svg) {
+            svg.style.overflow = 'visible';
+            const g = svg.querySelector('g');
+            if (g && g.getAttribute('transform')) {
+                // Ensure translation is always correct for Mon, Wed, Fri spacing
+                g.setAttribute('transform', 'translate(40, 25)');
+            }
+
+            // Forcefully lock empty square colors using !important inline
+            const rects = svg.querySelectorAll('rect.ContributionCalendar-day, rect.day');
+            rects.forEach(rect => {
+                const count = rect.getAttribute('data-count');
+                const level = rect.getAttribute('data-level');
+                if (count === '0' || level === '0') {
+                    rect.style.setProperty('fill', 'rgb(109, 108, 108)', 'important');
+                    rect.setAttribute('fill', 'rgb(109, 108, 108)');
+                }
+            });
+
+            // Sync legend empty square
+            const legendItems = calendarContainer.querySelectorAll('.contrib-legend li');
+            if (legendItems.length > 0) {
+                legendItems[0].style.setProperty('background-color', 'rgb(109, 108, 108)', 'important');
+            }
+        }
+    });
+
+    if (calendarContainer) {
+        observer.observe(calendarContainer, { childList: true, subtree: true });
+
+        // Backup redundancy for persistent libraries
+        setInterval(() => {
+            const titles = calendarContainer.querySelectorAll('h2, h3, .calendar-graph-title, .f4, .contribution-graph > h2, .contribution-graph > h3');
+            titles.forEach(t => t.remove());
+        }, 500);
+    }
+
+    // Initialize GitHub Calendar
+    try {
+        GitHubCalendar(".github-calendar", "KaunAnkit", {
+            responsive: true,
+            tooltips: true,
+            global_stats: false // Disable library stats
+        });
+    } catch (err) {
+        console.error("GitHub Calendar failed to load:", err);
+        if (calendarContainer) {
+            calendarContainer.innerHTML = '<p style="color: grey; text-align: center;">Unable to load GitHub calendar. Please check back later.</p>';
         }
     }
 });
-
-if (closeBtn) {
-    closeBtn.onclick = function() {
-        modal.style.display = 'none';
-    }
-}
-
-// Project modal functionality
-if (tfidfBox) {
-    tfidfBox.onclick = function() {
-        projectModal.classList.add('show');
-        document.body.style.overflow = 'hidden';
-    }
-}
-
-if (closeProjectBtn) {
-    closeProjectBtn.onclick = function() {
-        projectModal.classList.remove('show');
-        document.body.style.overflow = 'auto';
-    }
-}
-
-// Handle clicks outside modals
-window.onclick = function(event) {
-    if (projectModal && event.target == projectModal) {
-        projectModal.classList.remove('show');
-        document.body.style.overflow = 'auto';
-    }
-    if (modal && event.target == modal) {
-        modal.style.display = 'none';
-    }
-}
-
-// Load stats cards on page load
-document.addEventListener('DOMContentLoaded', function() {
-    // Page loaded
-});
-
-function displayLeetCodeStats(data) {
-    const statsDiv = document.getElementById('leetcode-stats');
-    if (!statsDiv) return;
-    
-    if (data.status === 'success' || data.totalSolved) {
-        let html = '<div class="leetcode-card"><div class="stat-item"><span class="stat-label">Total Solved</span><span class="stat-value">' + data.totalSolved + '</span></div>';
-        html += '<div style="margin-top: 20px;"><h4 style="color: #e6edf3; margin-top: 0;">By Difficulty</h4>';
-        html += '<div class="difficulty-item"><span class="difficulty-label"><span class="difficulty-dot easy"></span>Easy</span><span class="difficulty-count">' + data.easySolved + '</span></div>';
-        html += '<div class="difficulty-item"><span class="difficulty-label"><span class="difficulty-dot medium"></span>Medium</span><span class="difficulty-count">' + data.mediumSolved + '</span></div>';
-        html += '<div class="difficulty-item"><span class="difficulty-label"><span class="difficulty-dot hard"></span>Hard</span><span class="difficulty-count">' + data.hardSolved + '</span></div></div></div>';
-        statsDiv.innerHTML = html;
-    }
-}
-
-function displayLeetCodeStatsGraphQL(matchedUser) {
-    const statsDiv = document.getElementById('leetcode-stats');
-    if (!statsDiv) return;
-    
-    const acSubmissionNum = matchedUser.submitStats.acSubmissionNum;
-    let totalSolved = 0, easy = 0, medium = 0, hard = 0;
-    
-    acSubmissionNum.forEach(item => {
-        totalSolved += item.count;
-        if (item.difficulty === 'Easy') easy = item.count;
-        if (item.difficulty === 'Medium') medium = item.count;
-        if (item.difficulty === 'Hard') hard = item.count;
-    });
-    
-    let html = '<div class="leetcode-card"><div class="stat-item"><span class="stat-label">Total Solved</span><span class="stat-value">' + totalSolved + '</span></div>';
-    html += '<div style="margin-top: 20px;"><h4 style="color: #e6edf3; margin-top: 0;">By Difficulty</h4>';
-    html += '<div class="difficulty-item"><span class="difficulty-label"><span class="difficulty-dot easy"></span>Easy</span><span class="difficulty-count">' + easy + '</span></div>';
-    html += '<div class="difficulty-item"><span class="difficulty-label"><span class="difficulty-dot medium"></span>Medium</span><span class="difficulty-count">' + medium + '</span></div>';
-    html += '<div class="difficulty-item"><span class="difficulty-label"><span class="difficulty-dot hard"></span>Hard</span><span class="difficulty-count">' + hard + '</span></div></div></div>';
-    statsDiv.innerHTML = html;
-}
-
-function showLeetCodeError() {
-    loadStatsCards();
-}

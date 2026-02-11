@@ -1,195 +1,252 @@
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<!DOCTYPE html>
+<html lang="en">
 
-        <link rel="stylesheet" href="style.css">
-        <title>Ankit</title>
-    </head>
-    <body>
-        <div class="Container">
-            <div class="Basic">
-                <a href="#about">About</a>
-                <a href="#skills">Skills</a>
-                <a href="#projects">Projects</a>
-                <a href="#achievements">Achivement</a>
-                <a href="#blogs">Blogs</a>
-                <a href="#contact">Contact</a>
-            </div>
-            <h1>Ankit Jha</h1>
-            <hr>
-            <div class="links">
-                <a href="https://github.com/KaunAnkit">Github</a>
-                <a href="https://www.linkedin.com/in/ankitjhacodes/">LinkedIn</a>
-                <a href="https://x.com/Kaunankitjha">X</a>
-            </div>
-            <h2 id="about">About</h2>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
 
-            <p><i>B.Tech – Information Technology</i></p>
+    <!-- GitHub Calendar Library -->
+    <link rel="stylesheet" href="https://unpkg.com/github-calendar@latest/dist/github-calendar-responsive.css" />
+    <script src="https://unpkg.com/github-calendar@latest/dist/github-calendar.min.js"></script>
 
-            <p><i>Maharaja Surajmal Institute of Technology</i></p>
+    <link rel="stylesheet" href="style.css">
+    <title>Ankit</title>
+</head>
 
-            <p>
-                I have a strong interest in Artificial Intelligence and its potential to create positive impact. I enjoy learning how software and intelligent systems work behind the scenes and how they can be used to solve real-world problems. My long-term goal is to contribute to humanity by building meaningful and impactful solutions using AI.
-            </p>
-            <p>
-                Beyond technology, I have a deep passion for aviation and the wonders of flight.
-            </p>
-            <h2 id="skills">Skills</h2>
-            <div class="skills-container">
-                <div class="skills-column">
-                    <h4>Programming Languages</h4>
-                    <div class="skill">
-                        <span>Python</span>
-                        <div class="bar"><div class="fill" style="width: 80%;"></div></div>
-                    </div>
-                    <div class="skill">
-                        <span>C</span>
-                        <div class="bar"><div class="fill" style="width: 70%;"></div></div>
-                    </div>
-                    <div class="skill">
-                        <span>C++</span>
-                        <div class="bar"><div class="fill" style="width: 50%;"></div></div>
-                    </div>
-                    <div class="skill">
-                        <span>JavaScript</span>
-                        <div class="bar"><div class="fill" style="width: 35%;"></div></div>
-                    </div>
-                    <div class="skill">
-                        <span>HTML/CSS</span>
-                        <div class="bar"><div class="fill" style="width: 80%;"></div></div>
-                    </div>
-                    
+<body>
+    <div class="Container">
+        <div class="Basic">
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#achievements">Achievements</a>
+            <a href="#blogs">Blogs</a>
+            <a href="#contact">Contact</a>
+        </div>
+
+        <div class="hero-flex">
+            <div class="profile-side">
+                <div class="hero-header-vertical">
+                    <img src="Assests/background.png" alt="Ankit Jha" class="profile-pic">
+                    <h1 class="profile-name">Ankit Jha</h1>
                 </div>
+                <hr class="profile-hr">
+                <div class="links-vertical">
+                    <a href="https://github.com/KaunAnkit">Github</a>
+                    <a href="https://www.linkedin.com/in/ankitjhacodes/">LinkedIn</a>
+                    <a href="https://x.com/Kaunankitjha">X</a>
+                </div>
+            </div>
 
-                <div class="skills-column">
+            <div class="github-side">
+                <h3 class="section-title-side">GitHub Contributions</h3>
+                <div class="github-calendar">
+                    <div class="loading">Loading calendar...</div>
+                </div>
+            </div>
+        </div>
+
+
+        <h2 id="about">About</h2>
+
+        <p><i>B.Tech – Information Technology</i></p>
+
+        <p><i>Maharaja Surajmal Institute of Technology</i></p>
+
+        <p>
+            I have a strong interest in Artificial Intelligence and its potential to create positive impact. I enjoy
+            learning how software and intelligent systems work behind the scenes and how they can be used to solve
+            real-world problems. My long-term goal is to contribute to humanity by building meaningful and impactful
+            solutions using AI.
+        </p>
+        <p>
+            Beyond technology, I have a deep passion for aviation and the wonders of flight.
+        </p>
+        <h2 id="skills">Skills</h2>
+        <div class="skills-container">
+            <div class="skills-column">
+                <h4>Programming Languages</h4>
+                <div class="skill">
+                    <span>Python</span>
+                    <div class="bar">
+                        <div class="fill" style="width: 80%;"></div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <span>C</span>
+                    <div class="bar">
+                        <div class="fill" style="width: 70%;"></div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <span>C++</span>
+                    <div class="bar">
+                        <div class="fill" style="width: 50%;"></div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <span>JavaScript</span>
+                    <div class="bar">
+                        <div class="fill" style="width: 35%;"></div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <span>HTML/CSS</span>
+                    <div class="bar">
+                        <div class="fill" style="width: 80%;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skills-column">
                 <h4>Frameworks & Tools</h4>
-                    <div class="skill">
-                        <span>Git & GitHub</span>
-                        <div class="bar"><div class="fill" style="width: 40%;"></div></div>
-                    </div>
-                    <div class="skill">
-                        <span>VS Code</span>
-                        <div class="bar"><div class="fill" style="width: 95%;"></div></div>
-                    </div>
-                    <div class="skill">
-                        <span>PyCharm</span>
-                        <div class="bar"><div class="fill" style="width: 90%;"></div></div>
+                <div class="skill">
+                    <span>Git & GitHub</span>
+                    <div class="bar">
+                        <div class="fill" style="width: 40%;"></div>
                     </div>
                 </div>
-                <div class="skills-column">
+                <div class="skill">
+                    <span>VS Code</span>
+                    <div class="bar">
+                        <div class="fill" style="width: 95%;"></div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <span>PyCharm</span>
+                    <div class="bar">
+                        <div class="fill" style="width: 90%;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="skills-column">
                 <h4>Python Libraries</h4>
-                    <div class="skill">
-                        <span>NumPy</span>
-                        <div class="bar"><div class="fill" style="width: 65%;"></div></div>
+                <div class="skill">
+                    <span>NumPy</span>
+                    <div class="bar">
+                        <div class="fill" style="width: 65%;"></div>
                     </div>
-                    <div class="skill">
-                        <span>Pandas</span>
-                        <div class="bar"><div class="fill" style="width: 60%;"></div></div>
+                </div>
+                <div class="skill">
+                    <span>Pandas</span>
+                    <div class="bar">
+                        <div class="fill" style="width: 60%;"></div>
                     </div>
-                    <div class="skill">
-                        <span>MatPlotlib</span>
-                        <div class="bar"><div class="fill" style="width: 55%;"></div></div>
+                </div>
+                <div class="skill">
+                    <span>MatPlotlib</span>
+                    <div class="bar">
+                        <div class="fill" style="width: 55%;"></div>
                     </div>
-                    <div class="skill">
-                        <span>Scikit-learn</span>
-                        <div class="bar"><div class="fill" style="width: 45%;"></div></div>
+                </div>
+                <div class="skill">
+                    <span>Scikit-learn</span>
+                    <div class="bar">
+                        <div class="fill" style="width: 45%;"></div>
                     </div>
-                    <div class="skill">
-                        <span>OS</span>
-                        <div class="bar"><div class="fill" style="width: 70%;"></div></div>
+                </div>
+                <div class="skill">
+                    <span>OS</span>
+                    <div class="bar">
+                        <div class="fill" style="width: 70%;"></div>
                     </div>
                 </div>
             </div>
-            <h2 id="projects">Projects</h2>
-                <h3>Main</h3>
-                <div class="boxContainer">
-                    <div class="box project-box" id="tfidf-box">
-                        <img src="/Assests/search_engine.png" alt="">
-                        <h5>Search Engine</h5>
-                        <h5>(Tf-IDF)</h5>
-                    </div>
-                </div>
-                <h3>Side Quest</h3>
-                <div class="boxContainer">
-                    <a href="https://github.com/KaunAnkit/linear-regression-gradient-descent" target="_blank">
-                        <div class="box">
-                            <img src="/Assests/linear-reg.png" alt="">
-                            <h5>linear-regression</h5>
-                            <h5>-gradient-descent</h5>
-                        </div>
-                    </a>
-                    <a href="https://github.com/KaunAnkit/bug-detection-ml" target="_blank">
-                        <div class="box">
-                            <img src="/Assests/bug-detector.png" alt="">
-                            <h5>bug-detector</h5>
-                            <h5>-ml</h5>
-                        </div>
-                    </a>
-                </div>
-                
-            <h2 id="achievements">Achivements</h2>
-            <div class="certificates">
-                <img src="Assests/nasscom.png" alt="nasscom image processing">
-                <img src="Assests/gcc_badges.png" alt="Ml-Badges">
-                <img src="Assests/hp.png" alt="hp Basic">
+        </div>
+        <h2 id="projects">Projects</h2>
+        <h3>Main</h3>
+        <div class="boxContainer">
+            <div class="box project-box" id="tfidf-box">
+                <img src="/Assests/search_engine.png" alt="">
+                <h5>Search Engine</h5>
+                <h5>(Tf-IDF)</h5>
             </div>
-            <h2 id="blogs">Blogs</h2>
-            <div class="boxContainer">
-                <a href="https://www.notion.so/Neural-Network-2582a9f7d5bb8006bf46d689859671aa" target="_blank">
-                    <div class="box">
-                        <img src="/Assests/neural_network.png" alt="">
-                        <h5>Neural Network Introduction</h5>
-                    </div>
+        </div>
+        <h3>Side Quest</h3>
+        <div class="boxContainer">
+            <a href="https://github.com/KaunAnkit/linear-regression-gradient-descent" target="_blank">
+                <div class="box">
+                    <img src="/Assests/linear-reg.png" alt="">
+                    <h5>linear-regression</h5>
+                    <h5>-gradient-descent</h5>
+                </div>
+            </a>
+            <a href="https://github.com/KaunAnkit/bug-detection-ml" target="_blank">
+                <div class="box">
+                    <img src="/Assests/bug-detector.png" alt="">
+                    <h5>bug-detector</h5>
+                    <h5>-ml</h5>
+                </div>
+            </a>
+        </div>
+
+        <h2 id="achievements">Achievements</h2>
+        <div class="certificates">
+            <img src="Assests/nasscom.png" alt="nasscom image processing">
+            <img src="Assests/gcc_badges.png" alt="Ml-Badges">
+            <img src="Assests/hp.png" alt="hp Basic">
+        </div>
+        <h2 id="blogs">Blogs</h2>
+        <div class="boxContainer">
+            <a href="https://www.notion.so/Neural-Network-2582a9f7d5bb8006bf46d689859671aa" target="_blank">
+                <div class="box">
+                    <img src="/Assests/neural_network.png" alt="">
+                    <h5>Neural Network Introduction</h5>
+                </div>
+            </a>
+        </div>
+
+        <h2 id="contact">Get in touch</h2>
+        <div class="contact">
+            <p>
+                Have a project in mind or just want to chat about tech? I'd love to hear from you!
+            </p>
+            <div class="contact-options">
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=kaunankitjha@gmail.com" target="_blank"
+                    class="contact-item">
+                    <span class="material-symbols-outlined">contact_mail</span>
+                    <p>connectwithankitjha@gmail.com</p>
                 </a>
             </div>
-            
-            <h2 id="contact">Get in touch</h2>
-            <div class="contact">
-                <p>
-                Have a project in mind or just want to chat about tech? I'd love to hear from you!
-                </p>
-                <div class="contact-options">
-                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=kaunankitjha@gmail.com" target="_blank" class="contact-item">
-                        <span class="material-symbols-outlined">contact_mail</span>
-                        <p>connectwithankitjha@gmail.com</p>
-                    </a>
-                </div>
-            </div>
-            <hr style="width: 800px; margin:20px 0 60px 0;">
-
         </div>
-        <div id="projectModal" class="project-modal">
-            <div class="project-modal-content">
-                <span class="close-project-modal">&times;</span>
-                <div class="project-modal-inner">
-                    <img src="/Assests/search_engine.png" alt="TF-IDF Search Engine" class="project-modal-img">
-                    <div class="project-modal-text">
-                        <h2>TF-IDF Search Engine</h2>
-                        <p class="project-description">A distributed search engine built from scratch using TF-IDF ranking. Crawls websites, builds an inverted index, and serves search results through a web interface. Built with Python, Node.js (Express), and MongoDB Atlas to understand classical information retrieval and distributed system design.</p>
-                        <div class="project-links">
-                            <a href="https://github.com/KaunAnkit/tfidf-search-engine" target="_blank" class="btn-link github">
-                                <span class="material-symbols-outlined">code</span>
-                                GitHub
-                            </a>
-                            <a href="https://kaunankit.github.io/tfidf-search-engine/" target="_blank" class="btn-link demo">
-                                <span class="material-symbols-outlined">open_in_new</span>
-                                Try it Yourself
-                            </a>
-                        </div>
+        <hr style="width: 800px; margin:20px 0 60px 0;">
+
+    </div>
+    <div id="projectModal" class="project-modal">
+        <div class="project-modal-content">
+            <span class="close-project-modal">&times;</span>
+            <div class="project-modal-inner">
+                <img src="/Assests/search_engine.png" alt="TF-IDF Search Engine" class="project-modal-img">
+                <div class="project-modal-text">
+                    <h2>TF-IDF Search Engine</h2>
+                    <p class="project-description">A distributed search engine built from scratch using TF-IDF ranking.
+                        Crawls websites, builds an inverted index, and serves search results through a web interface.
+                        Built with Python, Node.js (Express), and MongoDB Atlas to understand classical information
+                        retrieval and distributed system design.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/KaunAnkit/tfidf-search-engine" target="_blank"
+                            class="btn-link github">
+                            <span class="material-symbols-outlined">code</span>
+                            GitHub
+                        </a>
+                        <a href="https://kaunankit.github.io/tfidf-search-engine/" target="_blank"
+                            class="btn-link demo">
+                            <span class="material-symbols-outlined">open_in_new</span>
+                            Try it Yourself
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
-        <div id="modal" class="modal">
-            <span class="close">&times;</span>
-            <img class="modal-content" id="modal-img">
-        </div>
-        <script src="script.js"></script>
-    </body>
-    </html>
+    </div>
+    <div id="modal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modal-img">
+    </div>
+    <script src="script.js"></script>
+</body>
 
-
+</html>
