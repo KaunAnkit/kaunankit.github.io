@@ -1,29 +1,52 @@
 document.addEventListener('DOMContentLoaded', function () {
     const calendarContainer = document.querySelector('.github-calendar');
-    const projectModal = document.getElementById('projectModal');
-    const closeProjectModal = document.querySelector('.close-project-modal');
-    const projectBox = document.getElementById('tfidf-box');
 
     // --- MODAL LOGIC ---
 
-    // Project Modal (Search Engine Tf-IDF)
-    if (projectBox && projectModal) {
-        projectBox.addEventListener('click', () => {
-            projectModal.style.display = 'flex';
+    // Project Modals Setup
+    function setupProjectModal(boxId, modalId) {
+        const box = document.getElementById(boxId);
+        const modal = document.getElementById(modalId);
+        if (!box || !modal) return;
+
+        const closeBtn = modal.querySelector('.close-project-modal');
+        const boxImg = box.querySelector('img');
+        const modalImg = modal.querySelector('.project-modal-img');
+
+        box.addEventListener('click', () => {
+            // Sync image from box to modal
+            if (boxImg && modalImg) {
+                modalImg.src = boxImg.src;
+            }
+            modal.style.display = 'flex';
             setTimeout(() => {
-                projectModal.classList.add('show');
+                modal.classList.add('show');
             }, 10);
+        });
+
+        if (closeBtn) {
+            closeBtn.addEventListener('click', () => {
+                modal.classList.remove('show');
+                setTimeout(() => {
+                    modal.style.display = 'none';
+                }, 300);
+            });
+        }
+
+        // Close on window click
+        window.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                modal.classList.remove('show');
+                setTimeout(() => {
+                    modal.style.display = 'none';
+                }, 300);
+            }
         });
     }
 
-    if (closeProjectModal && projectModal) {
-        closeProjectModal.addEventListener('click', () => {
-            projectModal.classList.remove('show');
-            setTimeout(() => {
-                projectModal.style.display = 'none';
-            }, 300);
-        });
-    }
+    setupProjectModal('tfidf-box', 'projectModal');
+    setupProjectModal('parchment-box', 'parchmentModal');
+    setupProjectModal('mllib-box', 'mllibModal');
 
     // Generic Image Modal (Certificates)
     const modal = document.getElementById('modal');
@@ -46,75 +69,64 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Close Modals on Window Click
+    // Close Generic Modal on Window Click
     window.addEventListener('click', (event) => {
-        if (event.target === projectModal) {
-            projectModal.classList.remove('show');
-            setTimeout(() => {
-                projectModal.style.display = 'none';
-            }, 300);
-        }
         if (event.target === modal) {
             modal.style.display = "none";
         }
     });
 
-    // --- CALENDAR LOGIC (Nuclear Fix) ---
+    // --- CALENDAR LOGIC (Robust Implementation) ---
 
-    // Observer to fix SVG, remove titles, and lock colors
-    const observer = new MutationObserver(() => {
-        // PHYSICALLY REMOVE titles to ensure they don't reappear
-        const titles = calendarContainer.querySelectorAll('h2, h3, .calendar-graph-title, .f4, .contribution-graph > h2, .contribution-graph > h3');
-        titles.forEach(t => t.remove());
-
+    function styleCalendar() {
         const svg = calendarContainer.querySelector('svg');
         if (svg) {
             svg.style.overflow = 'visible';
             const g = svg.querySelector('g');
-            if (g && g.getAttribute('transform')) {
-                // Ensure translation is always correct for Mon, Wed, Fri spacing
-                g.setAttribute('transform', 'translate(40, 25)');
+            if (g) {
+                g.setAttribute('transform', 'translate(45, 30)');
             }
 
-            // Forcefully lock empty square colors using !important inline
             const rects = svg.querySelectorAll('rect.ContributionCalendar-day, rect.day');
             rects.forEach(rect => {
                 const count = rect.getAttribute('data-count');
                 const level = rect.getAttribute('data-level');
+                rect.style.setProperty('rx', '2px', 'important');
                 if (count === '0' || level === '0') {
-                    rect.style.setProperty('fill', 'rgb(109, 108, 108)', 'important');
-                    rect.setAttribute('fill', 'rgb(109, 108, 108)');
+                    rect.style.setProperty('fill', '#1a1a1a', 'important');
+                    rect.setAttribute('fill', '#1a1a1a');
                 }
             });
 
-            // Sync legend empty square
             const legendItems = calendarContainer.querySelectorAll('.contrib-legend li');
             if (legendItems.length > 0) {
-                legendItems[0].style.setProperty('background-color', 'rgb(109, 108, 108)', 'important');
+                legendItems[0].style.setProperty('background-color', '#1a1a1a', 'important');
             }
         }
-    });
-
-    if (calendarContainer) {
-        observer.observe(calendarContainer, { childList: true, subtree: true });
-
-        // Backup redundancy for persistent libraries
-        setInterval(() => {
-            const titles = calendarContainer.querySelectorAll('h2, h3, .calendar-graph-title, .f4, .contribution-graph > h2, .contribution-graph > h3');
-            titles.forEach(t => t.remove());
-        }, 500);
     }
 
-    // Initialize GitHub Calendar
-    try {
-        GitHubCalendar(".github-calendar", "KaunAnkit", {
-            responsive: true,
-            tooltips: true,
-            global_stats: false // Disable library stats
-        });
-    } catch (err) {
-        console.error("GitHub Calendar failed to load:", err);
-        if (calendarContainer) {
+    if (calendarContainer) {
+        // Initialize with standard options
+        try {
+            GitHubCalendar(".github-calendar", "KaunAnkit", {
+                responsive: true,
+                tooltips: true
+            });
+
+            // Poll for SVG injection to apply custom styles
+            let retryCount = 0;
+            const checkExist = setInterval(() => {
+                if (calendarContainer.querySelector('svg')) {
+                    styleCalendar();
+                    clearInterval(checkExist);
+                } else if (retryCount > 50) { // Stop after 5 seconds
+                    clearInterval(checkExist);
+                }
+                retryCount++;
+            }, 100);
+
+        } catch (err) {
+            console.error("GitHub Calendar failed to load:", err);
             calendarContainer.innerHTML = '<p style="color: grey; text-align: center;">Unable to load GitHub calendar. Please check back later.</p>';
         }
     }

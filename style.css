@@ -539,22 +539,33 @@ html {
 }
 
 .github-calendar {
-  background: linear-gradient(145deg, #0a0909, #161616);
-  border-radius: 12px;
-  padding: 30px;
-  border: 1px solid #333;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-  transition: border-color 0.3s ease, transform 0.3s ease;
+  background: #0d0d0d;
+  border-radius: 16px;
+  padding: 40px;
+  border: 1px solid #1a1a1a;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 
+              inset 0 0 20px rgba(255, 255, 255, 0.02);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   color: #EDEDED !important;
+  position: relative;
 }
 
-.github-calendar h3 {
-  color: #EDEDED !important;
+.github-calendar::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.03) 0%, transparent 70%);
+  pointer-events: none;
 }
 
 .github-calendar:hover {
-  border-color: #444;
-  transform: translateY(-2px);
+  border-color: #333;
+  transform: translateY(-5px) scale(1.01);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.9), 
+              inset 0 0 30px rgba(255, 255, 255, 0.04);
 }
 
 /* GitHub Calendar Nuclear Cleanup */
@@ -565,41 +576,70 @@ html {
 /* GitHub Calendar Refinement - Title & Stats */
 .github-calendar .contrib-footer,
 .github-calendar a,
-.github-calendar .contrib-column {
-  display: none !important;
-}
-
-.github-calendar h2,
-.github-calendar h3,
-.github-calendar .contribution-graph>h2,
-.github-calendar .contribution-graph>h3,
-.github-calendar .calendar-graph-title {
+.github-calendar .contrib-column,
+.github-calendar .calendar-graph-title,
+.github-calendar .contribution-graph > h2,
+.github-calendar .contribution-graph > h3,
+.github-calendar .f4 {
   display: none !important;
   visibility: hidden !important;
   height: 0 !important;
-  opacity: 0 !important;
-  pointer-events: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
-.github-calendar {
-  padding: 40px !important;
+.github-calendar h2,
+.github-calendar h3 {
+  display: none !important;
 }
 
 /* Ensure SVG content doesn't clip */
 .github-calendar svg {
   overflow: visible !important;
+  width: 100% !important;
 }
 
-/* Forceful Label Positioning */
+/* Forceful Label Positioning & Styling */
 .github-calendar .wday,
 .github-calendar .day-label,
 .github-calendar text.wday,
 .github-calendar text.ContributionCalendar-label {
-  fill: #AAAAAA !important;
+  fill: #666666 !important;
+  font-size: 9px !important;
+  font-weight: 500 !important;
+  transform: translateX(-35px) !important;
+}
+
+.github-calendar text.month,
+.github-calendar text.ContributionCalendar-label[data-total-count] {
+  fill: #888888 !important;
   font-size: 10px !important;
-  transform: translateX(-30px) !important;
-  /* Push labels even further left */
-  transform-box: fill-box;
+  font-weight: 500 !important;
+}
+
+/* Legend Styling */
+.github-calendar .contrib-legend {
+  margin-top: 25px !important;
+  font-size: 11px !important;
+  color: #666666 !important;
+  display: flex !important;
+  justify-content: flex-end !important;
+  gap: 8px !important;
+  align-items: center !important;
+}
+
+.github-calendar .contrib-legend ul {
+  display: flex !important;
+  list-style: none !important;
+  gap: 4px !important;
+  padding: 0 !important;
+  margin: 0 10px !important;
+}
+
+.github-calendar .contrib-legend li {
+  width: 10px !important;
+  height: 10px !important;
+  border-radius: 2px !important;
 }
 
 /* Push the main grid group to the right to avoid label overlap */
