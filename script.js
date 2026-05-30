@@ -1,133 +1,241 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const calendarContainer = document.querySelector('.github-calendar');
 
-    // --- MODAL LOGIC ---
+  const yearEl = document.getElementById('footer-year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-    // Project Modals Setup
-    function setupProjectModal(boxId, modalId) {
-        const box = document.getElementById(boxId);
-        const modal = document.getElementById(modalId);
-        if (!box || !modal) return;
+  const navbar = document.getElementById('navbar');
+  if (navbar) {
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive: true });
+  }
 
-        const closeBtn = modal.querySelector('.close-project-modal');
-        const boxImg = box.querySelector('img');
-        const modalImg = modal.querySelector('.project-modal-img');
+  function openModal(modal) {
+    modal.classList.add('show');
+    document.body.style.overflow = 'hidden';
+  }
 
-        box.addEventListener('click', () => {
-            // Sync image from box to modal
-            if (boxImg && modalImg) {
-                modalImg.src = boxImg.src;
-            }
-            modal.style.display = 'flex';
-            setTimeout(() => {
-                modal.classList.add('show');
-            }, 10);
-        });
+  function closeModal(modal) {
+    modal.classList.remove('show');
+    document.body.style.overflow = '';
+  }
 
-        if (closeBtn) {
-            closeBtn.addEventListener('click', () => {
-                modal.classList.remove('show');
-                setTimeout(() => {
-                    modal.style.display = 'none';
-                }, 300);
-            });
+  const projectMap = {
+    'tfidf-box':     'projectModal',
+    'parchment-box': 'parchmentModal',
+    'mllib-box':     'mllibModal',
+  };
+
+  document.querySelectorAll('.project-box').forEach(box => {
+    box.addEventListener('click', () => {
+      const modalId = projectMap[box.id];
+      if (!modalId) return;
+      const modal = document.getElementById(modalId);
+      if (!modal) return;
+
+      const boxImg   = box.querySelector('img');
+      const modalImg = modal.querySelector('.project-modal-img');
+      if (boxImg && modalImg) modalImg.src = boxImg.src;
+
+      openModal(modal);
+    });
+  });
+
+  document.querySelectorAll('.project-modal').forEach(modal => {
+    const closeBtn = modal.querySelector('.close-project-modal');
+    if (closeBtn) closeBtn.addEventListener('click', () => closeModal(modal));
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal(modal);
+    });
+  });
+
+  const certModal    = document.getElementById('modal');
+  const certModalImg = document.getElementById('modal-img');
+  const certClose    = certModal?.querySelector('.close');
+
+  document.querySelectorAll('.certificates img').forEach(img => {
+    img.addEventListener('click', () => {
+      if (!certModal || !certModalImg) return;
+      certModalImg.src = img.src;
+      certModalImg.alt = img.alt;
+      openModal(certModal);
+    });
+  });
+
+  if (certClose) certClose.addEventListener('click', () => closeModal(certModal));
+  if (certModal) {
+    certModal.addEventListener('click', (e) => {
+      if (e.target === certModal) closeModal(certModal);
+    });
+  }
+
+  // Escape key closes any open modal
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== 'Escape') return;
+    document.querySelectorAll('.modal.show, .project-modal.show').forEach(m => closeModal(m));
+  });
+
+  const LC_USER    = 'KaunAnkit';
+  const LC_API     = `https://alfa-leetcode-api.onrender.com/${LC_USER}`;
+  const CACHE_KEY  = 'lc_stats_cache';
+  const CACHE_TTL  = 30 * 60 * 1000; // 30 minutes
+
+  async function fetchLeetCodeStats() {
+    try {
+      const cached = sessionStorage.getItem(CACHE_KEY);
+      if (cached) {
+        const { data, ts } = JSON.parse(cached);
+        if (Date.now() - ts < CACHE_TTL) {
+          renderLeetCode(data);
+          return;
         }
+      }
+    } catch (_) { /* ignore storage errors */ }
 
-        // Close on window click
-        window.addEventListener('click', (event) => {
-            if (event.target === modal) {
-                modal.classList.remove('show');
-                setTimeout(() => {
-                    modal.style.display = 'none';
-                }, 300);
-            }
-        });
+    try {
+      const [solvedRes, profileRes] = await Promise.all([
+        fetch(`${LC_API}/solved`),
+        fetch(`${LC_API}`),
+      ]);
+
+      if (!solvedRes.ok || !profileRes.ok) throw new Error('API error');
+
+      const solved  = await solvedRes.json();
+      const profile = await profileRes.json();
+
+      const data = {
+        total:   solved.solvedProblem   ?? 0,
+        easy:    solved.easySolved      ?? 0,
+        medium:  solved.mediumSolved    ?? 0,
+        hard:    solved.hardSolved      ?? 0,
+        ranking: profile.ranking        ?? null,
+      };
+
+      try {
+        sessionStorage.setItem(CACHE_KEY, JSON.stringify({ data, ts: Date.now() }));
+      } catch (_) {}
+
+      renderLeetCode(data);
+
+    } catch (err) {
+      console.warn('LeetCode stats fetch failed:', err);
+      showLeetCodeError();
     }
+  }
 
-    setupProjectModal('tfidf-box', 'projectModal');
-    setupProjectModal('parchment-box', 'parchmentModal');
-    setupProjectModal('mllib-box', 'mllibModal');
+  function animateNumber(el, target) {
+    const duration = 600;
+    const start    = Date.now();
+    const from     = 0;
+    const tick = () => {
+      const progress = Math.min((Date.now() - start) / duration, 1);
+      const ease     = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.round(from + (target - from) * ease);
+      if (progress < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  }
 
-    // Generic Image Modal (Certificates)
-    const modal = document.getElementById('modal');
-    const modalImg = document.getElementById('modal-img');
-    const closeBtn = document.querySelector('.close');
-    const certificates = document.querySelectorAll('.certificates img');
+  function formatRank(n) {
+    if (!n) return '—';
+    if (n >= 1_000_000) return (n / 1_000_000).toFixed(1) + 'M';
+    if (n >= 1_000)     return (n / 1_000).toFixed(1) + 'K';
+    return String(n);
+  }
 
-    certificates.forEach(img => {
-        img.addEventListener('click', () => {
-            if (modal && modalImg) {
-                modal.style.display = "block";
-                modalImg.src = img.src;
-            }
-        });
+  function renderLeetCode(data) {
+    document.querySelectorAll('.lc-skeleton').forEach(el => {
+      el.classList.remove('lc-skeleton');
     });
 
-    if (closeBtn && modal) {
-        closeBtn.addEventListener('click', () => {
-            modal.style.display = "none";
-        });
+    const elTotal  = document.getElementById('lc-total');
+    const elEasy   = document.getElementById('lc-easy');
+    const elMedium = document.getElementById('lc-medium');
+    const elHard   = document.getElementById('lc-hard');
+    const elRank   = document.getElementById('lc-rank');
+
+    if (elTotal)  animateNumber(elTotal,  data.total);
+    if (elEasy)   animateNumber(elEasy,   data.easy);
+    if (elMedium) animateNumber(elMedium, data.medium);
+    if (elHard)   animateNumber(elHard,   data.hard);
+    if (elRank)   elRank.textContent = formatRank(data.ranking);
+
+    const barWrap = document.getElementById('lc-bar-wrap');
+    if (barWrap && data.total > 0) {
+      barWrap.style.display = 'block';
+      document.getElementById('lc-bar-easy').style.width   = (data.easy   / data.total * 100) + '%';
+      document.getElementById('lc-bar-medium').style.width = (data.medium / data.total * 100) + '%';
+      document.getElementById('lc-bar-hard').style.width   = (data.hard   / data.total * 100) + '%';
     }
 
-    // Close Generic Modal on Window Click
-    window.addEventListener('click', (event) => {
-        if (event.target === modal) {
-            modal.style.display = "none";
-        }
+    const status = document.getElementById('lc-status');
+    if (status) status.classList.add('live');
+  }
+
+  function showLeetCodeError() {
+    document.querySelectorAll('.lc-skeleton').forEach(el => {
+      el.classList.remove('lc-skeleton');
+    });
+    ['lc-total','lc-easy','lc-medium','lc-hard','lc-rank'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.closest('.cp-stat').style.display = 'none';
+    });
+    const err = document.getElementById('lc-error');
+    if (err) err.style.display = 'block';
+  }
+
+  fetchLeetCodeStats();
+  const calendarContainer = document.querySelector('.github-calendar');
+  if (!calendarContainer) return;
+
+  function styleCalendar() {
+    const svg = calendarContainer.querySelector('svg');
+    if (!svg) return;
+    svg.style.overflow = 'visible';
+
+
+    calendarContainer.querySelectorAll('a, p, h2, h3').forEach(el => {
+      el.style.display = 'none';
     });
 
-    // --- CALENDAR LOGIC (Robust Implementation) ---
+    const levelColors = {
+      '0': '#161b22',
+      '1': '#0e4429',
+      '2': '#006d32',
+      '3': '#26a641',
+      '4': '#39d353',
+    };
 
-    function styleCalendar() {
-        const svg = calendarContainer.querySelector('svg');
-        if (svg) {
-            svg.style.overflow = 'visible';
-            const g = svg.querySelector('g');
-            if (g) {
-                g.setAttribute('transform', 'translate(45, 30)');
-            }
+    svg.querySelectorAll('rect.ContributionCalendar-day, rect.day').forEach(rect => {
+      rect.setAttribute('rx', '2');
+      rect.setAttribute('ry', '2');
+      const level = rect.getAttribute('data-level') || '0';
+      const color = levelColors[level] || levelColors['0'];
+      rect.style.setProperty('fill', color, 'important');
+      rect.setAttribute('fill', color);
+    });
+  }
 
-            const rects = svg.querySelectorAll('rect.ContributionCalendar-day, rect.day');
-            rects.forEach(rect => {
-                const count = rect.getAttribute('data-count');
-                const level = rect.getAttribute('data-level');
-                rect.style.setProperty('rx', '2px', 'important');
-                if (count === '0' || level === '0') {
-                    rect.style.setProperty('fill', '#1a1a1a', 'important');
-                    rect.setAttribute('fill', '#1a1a1a');
-                }
-            });
+  try {
+    GitHubCalendar('.github-calendar', 'KaunAnkit', {
+      responsive: true,
+      tooltips: true,
+      global_stats: false,
+      summary_text: false,
+    });
 
-            const legendItems = calendarContainer.querySelectorAll('.contrib-legend li');
-            if (legendItems.length > 0) {
-                legendItems[0].style.setProperty('background-color', '#1a1a1a', 'important');
-            }
-        }
-    }
+    const poll = setInterval(() => {
+      if (calendarContainer.querySelector('svg')) {
+        styleCalendar();
+        clearInterval(poll);
+      } else if (++attempts > 60) {
+        clearInterval(poll);
+      }
+    }, 100);
 
-    if (calendarContainer) {
-        // Initialize with standard options
-        try {
-            GitHubCalendar(".github-calendar", "KaunAnkit", {
-                responsive: true,
-                tooltips: true
-            });
-
-            // Poll for SVG injection to apply custom styles
-            let retryCount = 0;
-            const checkExist = setInterval(() => {
-                if (calendarContainer.querySelector('svg')) {
-                    styleCalendar();
-                    clearInterval(checkExist);
-                } else if (retryCount > 50) { // Stop after 5 seconds
-                    clearInterval(checkExist);
-                }
-                retryCount++;
-            }, 100);
-
-        } catch (err) {
-            console.error("GitHub Calendar failed to load:", err);
-            calendarContainer.innerHTML = '<p style="color: grey; text-align: center;">Unable to load GitHub calendar. Please check back later.</p>';
-        }
-    }
+  } catch (err) {
+    console.error('GitHub Calendar failed:', err);
+    calendarContainer.innerHTML =
+      '<p style="color:#555;text-align:center;padding:20px;">Unable to load GitHub calendar.</p>';
+  }
 });

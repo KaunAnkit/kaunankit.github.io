@@ -2,306 +2,360 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
-
-    <!-- GitHub Calendar Library -->
-    <link rel="stylesheet" href="https://unpkg.com/github-calendar@latest/dist/github-calendar-responsive.css" />
-    <script src="https://unpkg.com/github-calendar@latest/dist/github-calendar.min.js"></script>
-
-    <link rel="stylesheet" href="style.css">
-    <title>Ankit</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/github-calendar@latest/dist/github-calendar-responsive.css" />
+  <script src="https://unpkg.com/github-calendar@latest/dist/github-calendar.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <title>Ankit Jha</title>
 </head>
 
 <body>
-    <div class="Container">
-        <div class="Basic">
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#projects">Projects</a>
-            <a href="#achievements">Achievements</a>
-            <a href="#blogs">Blogs</a>
-            <a href="#contact">Contact</a>
+  <div class="Container">
+
+    <nav class="Basic" id="navbar">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#cp">Competitive</a>
+      <a href="#achievements">Achievements</a>
+      <a href="#blogs">Writing</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="hero-flex">
+      <div class="profile-side">
+        <div class="hero-header-vertical">
+          <img src="Assests/background.png" alt="Ankit Jha" class="profile-pic" loading="lazy">
+          <h1 class="profile-name">Ankit Jha</h1>
+          <p class="profile-tagline">Aspiring Software Engineer &amp; ML Researcher</p>
         </div>
-
-        <div class="hero-flex">
-            <div class="profile-side">
-                <div class="hero-header-vertical">
-                    <img src="Assests/background.png" alt="Ankit Jha" class="profile-pic">
-                    <h1 class="profile-name">Ankit Jha</h1>
-                </div>
-                <hr class="profile-hr">
-                <div class="links-vertical">
-                    <a href="https://github.com/KaunAnkit">Github</a>
-                    <a href="https://www.linkedin.com/in/ankitjhacodes/">LinkedIn</a>
-                    <a href="https://x.com/Kaunankitjha">X</a>
-                </div>
-            </div>
-
-            <div class="github-side">
-                <h3 class="section-title-side">GitHub Contributions</h3>
-                <div class="github-calendar">
-                    <div class="loading">Loading calendar...</div>
-                </div>
-            </div>
+        <hr class="profile-hr">
+        <div class="links-vertical">
+          <a href="https://github.com/KaunAnkit" target="_blank" rel="noopener noreferrer">Github</a>
+          <a href="https://www.linkedin.com/in/ankitjhacodes/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://x.com/Kaunankitjha" target="_blank" rel="noopener noreferrer">X</a>
         </div>
+        <a href="Assests/Resume_AnkitJha.pdf" download class="resume-btn">
+          <span class="material-symbols-outlined">download</span> Resume
+        </a>
+      </div>
 
+      <div class="github-side">
+        <h3 class="section-title-side">GitHub Contributions</h3>
+        <div class="github-calendar">
+          <div class="loading">Loading calendar...</div>
+        </div>
+      </div>
+    </div>
 
-        <h2 id="about">About</h2>
-
-        <p><i>B.Tech – Information Technology</i></p>
-
-        <p><i>Maharaja Surajmal Institute of Technology</i></p>
-
+    <h2 id="about">About</h2>
+    <div class="about-grid">
+      <div class="about-text">
         <p>
-            I have a strong interest in Artificial Intelligence and its potential to create positive impact. I enjoy
-            learning how software and intelligent systems work behind the scenes and how they can be used to solve
-            real-world problems. My long-term goal is to contribute to humanity by building meaningful and impactful
-            solutions using AI.
+          I'm a first-year B.Tech student in Information Technology at Maharaja Surajmal Institute of Technology,
+          New Delhi, with a CGPA of <strong>9.5/10</strong>. I have a strong interest in Artificial Intelligence and its
+          potential to create positive impact — I enjoy learning how software and intelligent systems work behind
+          the scenes and building things that solve real problems.
         </p>
-        <p>
-            Beyond technology, I have a deep passion for aviation and the wonders of flight.
+        <p style="margin-top:12px;">
+          My long-term goal is to contribute to humanity by building meaningful solutions using AI. Beyond
+          technology, I have a deep passion for aviation and the wonders of flight.
         </p>
-        <h2 id="skills">Skills</h2>
-        <div class="skills-container">
-            <div class="skills-column">
-                <h4>Programming Languages</h4>
-                <div class="skill">
-                    <span>Python</span>
-                    <div class="bar">
-                        <div class="fill" style="width: 80%;"></div>
-                    </div>
-                </div>
-                <div class="skill">
-                    <span>C</span>
-                    <div class="bar">
-                        <div class="fill" style="width: 70%;"></div>
-                    </div>
-                </div>
-                <div class="skill">
-                    <span>C++</span>
-                    <div class="bar">
-                        <div class="fill" style="width: 50%;"></div>
-                    </div>
-                </div>
-                <div class="skill">
-                    <span>JavaScript</span>
-                    <div class="bar">
-                        <div class="fill" style="width: 35%;"></div>
-                    </div>
-                </div>
-                <div class="skill">
-                    <span>HTML/CSS</span>
-                    <div class="bar">
-                        <div class="fill" style="width: 80%;"></div>
-                    </div>
-                </div>
-            </div>
+      </div>
+      <div class="about-stats">
+        <div class="stat-card">
+          <span class="stat-value">9.5</span>
+          <span class="stat-label">CGPA / 10</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-value">3+</span>
+          <span class="stat-label">Main Projects</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-value">50+</span>
+          <span class="stat-label">LeetCode Problems</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-value">2029</span>
+          <span class="stat-label">Expected Graduation</span>
+        </div>
+      </div>
+    </div>
 
-            <div class="skills-column">
-                <h4>Frameworks & Tools</h4>
-                <div class="skill">
-                    <span>Git & GitHub</span>
-                    <div class="bar">
-                        <div class="fill" style="width: 40%;"></div>
-                    </div>
-                </div>
-                <div class="skill">
-                    <span>VS Code</span>
-                    <div class="bar">
-                        <div class="fill" style="width: 95%;"></div>
-                    </div>
-                </div>
-                <div class="skill">
-                    <span>PyCharm</span>
-                    <div class="bar">
-                        <div class="fill" style="width: 90%;"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="skills-column">
-                <h4>Python Libraries</h4>
-                <div class="skill">
-                    <span>NumPy</span>
-                    <div class="bar">
-                        <div class="fill" style="width: 65%;"></div>
-                    </div>
-                </div>
-                <div class="skill">
-                    <span>Pandas</span>
-                    <div class="bar">
-                        <div class="fill" style="width: 60%;"></div>
-                    </div>
-                </div>
-                <div class="skill">
-                    <span>MatPlotlib</span>
-                    <div class="bar">
-                        <div class="fill" style="width: 55%;"></div>
-                    </div>
-                </div>
-                <div class="skill">
-                    <span>Scikit-learn</span>
-                    <div class="bar">
-                        <div class="fill" style="width: 45%;"></div>
-                    </div>
-                </div>
-                <div class="skill">
-                    <span>OS</span>
-                    <div class="bar">
-                        <div class="fill" style="width: 70%;"></div>
-                    </div>
-                </div>
-            </div>
+    <h2 id="skills">Skills</h2>
+    <div class="skills-container">
+      <div class="skills-column">
+        <h4>Programming Languages</h4>
+        <div class="skill-tags">
+          <span class="tag">Python</span>
+          <span class="tag">C</span>
+          <span class="tag">C++</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
         </div>
-        <h2 id="projects">Projects</h2>
-        <h3>Main</h3>
-        <div class="boxContainer">
-            <div class="box project-box" id="tfidf-box">
-                <img src="/Assests/search_engine.png" alt="">
-                <h5>Search Engine</h5>
-                <h5>(Tf-IDF)</h5>
-            </div>
-            <div class="box project-box" id="parchment-box">
-                <img src="/Assests/parchment.png" alt="">
-                <h5>Parchment</h5>
-                <h5>AI Research Web</h5>
-            </div>
-            <div class="box project-box" id="mllib-box">
-                <img src="/Assests/mllib.png" alt="">
-                <h5>ML-lib</h5>
-                <h5>ML Library</h5>
-            </div>
+      </div>
+      <div class="skills-column">
+        <h4>Web &amp; Backend</h4>
+        <div class="skill-tags">
+          <span class="tag">FastAPI</span>
+          <span class="tag">REST APIs</span>
+          <span class="tag">Node.js</span>
+          <span class="tag">SQLite</span>
         </div>
-        <h3>Side Quest</h3>
-        <div class="boxContainer">
-            <a href="https://github.com/KaunAnkit/linear-regression-gradient-descent" target="_blank">
-                <div class="box">
-                    <img src="/Assests/linear-reg.png" alt="">
-                    <h5>linear-regression</h5>
-                    <h5>-gradient-descent</h5>
-                </div>
+      </div>
+      <div class="skills-column">
+        <h4>Data &amp; AI</h4>
+        <div class="skill-tags">
+          <span class="tag">NumPy</span>
+          <span class="tag">Pandas</span>
+          <span class="tag">Scikit-learn</span>
+          <span class="tag">TF-IDF</span>
+          <span class="tag">LLM Integration</span>
+          <span class="tag">Matplotlib</span>
+        </div>
+      </div>
+      <div class="skills-column">
+        <h4>Tools &amp; Concepts</h4>
+        <div class="skill-tags">
+          <span class="tag">Git &amp; GitHub</span>
+          <span class="tag">VS Code</span>
+          <span class="tag">PyCharm</span>
+          <span class="tag">OOP</span>
+          <span class="tag">DSA</span>
+          <span class="tag">Prompt Engineering</span>
+          <span class="tag">Information Retrieval</span>
+        </div>
+      </div>
+    </div>
+
+    <h2 id="projects">Projects</h2>
+    <h3>Main</h3>
+    <div class="boxContainer">
+      <div class="box project-box" id="tfidf-box">
+        <img src="/Assests/search_engine.png" alt="TF-IDF Search Engine" loading="lazy">
+        <h5>Search Engine</h5>
+        <h5>(Tf-IDF)</h5>
+      </div>
+      <div class="box project-box" id="parchment-box">
+        <img src="/Assests/parchment.png" alt="Parchment AI Research Web" loading="lazy">
+        <h5>Parchment</h5>
+        <h5>AI Research Web</h5>
+      </div>
+      <div class="box project-box" id="mllib-box">
+        <img src="/Assests/mllib.png" alt="ML Library" loading="lazy">
+        <h5>ML-lib</h5>
+        <h5>ML Library</h5>
+      </div>
+    </div>
+
+    <h3>Side Quest</h3>
+    <div class="boxContainer">
+      <a href="https://github.com/KaunAnkit/linear-regression-gradient-descent" target="_blank" rel="noopener noreferrer">
+        <div class="box">
+          <img src="/Assests/linear-reg.png" alt="Linear Regression" loading="lazy">
+          <h5>linear-regression</h5>
+          <h5>-gradient-descent</h5>
+        </div>
+      </a>
+      <a href="https://github.com/KaunAnkit/bug-detection-ml" target="_blank" rel="noopener noreferrer">
+        <div class="box">
+          <img src="/Assests/bug-detector.png" alt="Bug Detector ML" loading="lazy">
+          <h5>bug-detector-ml</h5>
+        </div>
+      </a>
+      <a href="https://github.com/KaunAnkit/Snake" target="_blank" rel="noopener noreferrer">
+        <div class="box">
+          <img src="/Assests/snake.png" alt="Snake Game" loading="lazy">
+          <h5>Snake Game</h5>
+          <h5>Python</h5>
+        </div>
+      </a>
+    </div>
+
+    <h2 id="cp">Competitive Programming</h2>
+    <div class="cp-section">
+
+      <div class="cp-card" id="lc-card">
+        <div class="cp-card-header">
+          <svg class="lc-icon" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M36.7 34.3a2 2 0 0 1 0 2.8l-4.5 4.6a10 10 0 0 1-14.2 0L8.6 32.2a10 10 0 0 1 0-14.1l9.4-9.5a10 10 0 0 1 14.2 0l3.4 3.5a2 2 0 0 1-2.9 2.8l-3.4-3.5a6 6 0 0 0-8.5 0l-9.4 9.5a6 6 0 0 0 0 8.5l9.4 9.4a6 6 0 0 0 8.5 0l4.5-4.5a2 2 0 0 1 2.9 0Z" fill="#FFA116"/>
+            <path d="M20.5 17.2a2 2 0 0 1 2.8 0l12 12a2 2 0 0 1-2.8 2.8l-12-12a2 2 0 0 1 0-2.8Z" fill="#FFA116"/>
+            <path d="M38 20h-8a2 2 0 0 1 0-4h8a2 2 0 0 1 0 4Z" fill="#FFA116"/>
+          </svg>
+          <div>
+            <h4 class="cp-platform">LeetCode</h4>
+            <a href="https://leetcode.com/u/KaunAnkit/" target="_blank" rel="noopener noreferrer" class="cp-handle">@KaunAnkit</a>
+          </div>
+          <span class="lc-status" id="lc-status">
+            <span class="lc-dot"></span> Live
+          </span>
+        </div>
+
+        <div class="cp-stats" id="lc-stats">
+          <div class="cp-stat lc-skeleton">
+            <span class="cp-stat-val" id="lc-total">—</span>
+            <span class="cp-stat-label">Solved</span>
+          </div>
+          <div class="cp-stat lc-skeleton lc-easy">
+            <span class="cp-stat-val" id="lc-easy">—</span>
+            <span class="cp-stat-label">Easy</span>
+          </div>
+          <div class="cp-stat lc-skeleton lc-medium">
+            <span class="cp-stat-val" id="lc-medium">—</span>
+            <span class="cp-stat-label">Medium</span>
+          </div>
+          <div class="cp-stat lc-skeleton lc-hard">
+            <span class="cp-stat-val" id="lc-hard">—</span>
+            <span class="cp-stat-label">Hard</span>
+          </div>
+          <div class="cp-stat lc-skeleton">
+            <span class="cp-stat-val" id="lc-rank">—</span>
+            <span class="cp-stat-label">Ranking</span>
+          </div>
+        </div>
+
+        <div class="lc-bar-wrap" id="lc-bar-wrap" style="display:none">
+          <div class="lc-bar">
+            <div class="lc-bar-fill lc-bar-easy"  id="lc-bar-easy"  style="width:0%"></div>
+            <div class="lc-bar-fill lc-bar-medium" id="lc-bar-medium" style="width:0%"></div>
+            <div class="lc-bar-fill lc-bar-hard"  id="lc-bar-hard"  style="width:0%"></div>
+          </div>
+        </div>
+
+        <div class="cp-topics">
+          <span class="tag">Arrays</span>
+          <span class="tag">Two Pointers</span>
+          <span class="tag">Sliding Window</span>
+          <span class="tag">Stack</span>
+          <span class="tag">Binary Search</span>
+        </div>
+
+        <p class="lc-error" id="lc-error" style="display:none">
+          Could not load live stats — <a href="https://leetcode.com/u/KaunAnkit/" target="_blank" rel="noopener noreferrer">view on LeetCode ↗</a>
+        </p>
+      </div>
+    </div>
+
+    <h2 id="achievements">Achievements</h2>
+    <div class="certificates">
+      <img src="Assests/nasscom.png" alt="Nasscom Image Processing Certificate" loading="lazy">
+      <img src="Assests/gcc_badges.png" alt="ML Badges" loading="lazy">
+      <img src="Assests/hp.png" alt="HP Basic Certificate" loading="lazy">
+    </div>
+
+    <h2 id="blogs">Writing</h2>
+    <div class="boxContainer">
+      <a href="https://www.notion.so/Neural-Network-2582a9f7d5bb8006bf46d689859671aa" target="_blank" rel="noopener noreferrer">
+        <div class="box">
+          <img src="/Assests/neural_network.png" alt="Neural Network Blog" loading="lazy">
+          <h5>Neural Network Introduction</h5>
+        </div>
+      </a>
+    </div>
+
+    <h2 id="contact">Get in touch</h2>
+    <div class="contact">
+      <p>Have a project in mind or just want to chat about tech? I'd love to hear from you!</p>
+      <div class="contact-options">
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=reachankitjha@gmail.com" target="_blank" rel="noopener noreferrer" class="contact-item">
+          <span class="material-symbols-outlined">contact_mail</span>
+          <p>reachankitjha@gmail.com</p>
+        </a>
+        <a href="https://www.linkedin.com/in/ankitjhacodes/" target="_blank" rel="noopener noreferrer" class="contact-item">
+          <span class="material-symbols-outlined">person</span>
+          <p>LinkedIn</p>
+        </a>
+        <a href="https://x.com/Kaunankitjha" target="_blank" rel="noopener noreferrer" class="contact-item">
+          <span class="material-symbols-outlined">alternate_email</span>
+          <p>@Kaunankitjha</p>
+        </a>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+      <p>Designed &amp; built by Ankit Jha &nbsp;·&nbsp; <span id="footer-year"></span></p>
+    </footer>
+
+  </div>
+
+  <div id="projectModal" class="project-modal" role="dialog" aria-modal="true">
+    <div class="project-modal-content">
+      <button class="close-project-modal" aria-label="Close">&times;</button>
+      <div class="project-modal-inner">
+        <img src="/Assests/search_engine.png" alt="TF-IDF Search Engine" class="project-modal-img" loading="lazy">
+        <div class="project-modal-text">
+          <h2>TF-IDF Search Engine</h2>
+          <div class="modal-tags">
+            <span class="tag">Python</span><span class="tag">Node.js</span><span class="tag">SQLite</span><span class="tag">TF-IDF</span>
+          </div>
+          <p class="project-description">Built an information retrieval system from scratch using TF-IDF scoring, inverted indexing, and a BFS-based web crawler. Stored the document corpus and index metadata in SQLite and exposed ranked query results via a CLI and web interface.</p>
+          <div class="project-links">
+            <a href="https://github.com/KaunAnkit/tfidf-search-engine" target="_blank" rel="noopener noreferrer" class="btn-link github">
+              <span class="material-symbols-outlined">code</span> GitHub
             </a>
-            <a href="https://github.com/KaunAnkit/bug-detection-ml" target="_blank">
-                <div class="box">
-                    <img src="/Assests/bug-detector.png" alt="">
-                    <h5>bug-detector</h5>
-                    <h5>-ml</h5>
-                </div>
+            <a href="https://kaunankit.github.io/tfidf-search-engine/" target="_blank" rel="noopener noreferrer" class="btn-link demo">
+              <span class="material-symbols-outlined">open_in_new</span> Try it Yourself
             </a>
+          </div>
         </div>
+      </div>
+    </div>
+  </div>
 
-        <h2 id="achievements">Achievements</h2>
-        <div class="certificates">
-            <img src="Assests/nasscom.png" alt="nasscom image processing">
-            <img src="Assests/gcc_badges.png" alt="Ml-Badges">
-            <img src="Assests/hp.png" alt="hp Basic">
-        </div>
-        <h2 id="blogs">Blogs</h2>
-        <div class="boxContainer">
-            <a href="https://www.notion.so/Neural-Network-2582a9f7d5bb8006bf46d689859671aa" target="_blank">
-                <div class="box">
-                    <img src="/Assests/neural_network.png" alt="">
-                    <h5>Neural Network Introduction</h5>
-                </div>
+  <div id="parchmentModal" class="project-modal" role="dialog" aria-modal="true">
+    <div class="project-modal-content">
+      <button class="close-project-modal" aria-label="Close">&times;</button>
+      <div class="project-modal-inner">
+        <img src="/Assests/parchment.png" alt="Parchment AI Research Web" class="project-modal-img" loading="lazy">
+        <div class="project-modal-text">
+          <h2>Parchment | Research Intelligence</h2>
+          <div class="modal-tags">
+            <span class="tag">FastAPI</span><span class="tag">Groq API</span><span class="tag">HTML/CSS/JS</span><span class="tag">Prompt Engineering</span>
+          </div>
+          <p class="project-description">Modular FastAPI backend with service-based architecture for PDF ingestion and LLM-driven processing. Implements a document chunking pipeline integrated with Groq API for automated summarization and flashcard generation. Applied prompt engineering to improve output quality with an end-to-end interactive frontend.</p>
+          <div class="project-links">
+            <a href="https://github.com/KaunAnkit/ai-reasearch-web" target="_blank" rel="noopener noreferrer" class="btn-link github">
+              <span class="material-symbols-outlined">code</span> GitHub
             </a>
+            <a href="https://parchment-ai.onrender.com/" target="_blank" rel="noopener noreferrer" class="btn-link demo">
+              <span class="material-symbols-outlined">open_in_new</span> Live Demo
+            </a>
+          </div>
         </div>
+      </div>
+    </div>
+  </div>
 
-        <h2 id="contact">Get in touch</h2>
-        <div class="contact">
-            <p>
-                Have a project in mind or just want to chat about tech? I'd love to hear from you!
-            </p>
-            <div class="contact-options">
-                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=kaunankitjha@gmail.com" target="_blank"
-                    class="contact-item">
-                    <span class="material-symbols-outlined">contact_mail</span>
-                    <p>reachankitjha@gmail.com</p>
-                </a>
-            </div>
+  <div id="mllibModal" class="project-modal" role="dialog" aria-modal="true">
+    <div class="project-modal-content">
+      <button class="close-project-modal" aria-label="Close">&times;</button>
+      <div class="project-modal-inner">
+        <img src="/Assests/mllib.png" alt="ML-lib" class="project-modal-img" loading="lazy">
+        <div class="project-modal-text">
+          <h2>ML-lib (Codex)</h2>
+          <div class="modal-tags">
+            <span class="tag">Python</span><span class="tag">NumPy</span><span class="tag">From Scratch</span>
+          </div>
+          <p class="project-description">Implemented Linear Regression, Logistic Regression, and K-Nearest Neighbors in NumPy without ML frameworks. Built custom gradient descent, loss functions, and evaluation metrics with a sklearn-style modular API including feature scaling (Standard/MinMax) and data splitting utilities.</p>
+          <div class="project-links">
+            <a href="https://github.com/KaunAnkit/ML-Library" target="_blank" rel="noopener noreferrer" class="btn-link github">
+              <span class="material-symbols-outlined">code</span> GitHub
+            </a>
+          </div>
         </div>
-        <hr style="width: 800px; margin:20px 0 60px 0;">
+      </div>
+    </div>
+  </div>
 
-    </div>
-    <div id="projectModal" class="project-modal">
-        <div class="project-modal-content">
-            <span class="close-project-modal">&times;</span>
-            <div class="project-modal-inner">
-                <img src="/Assests/search_engine.png" alt="TF-IDF Search Engine" class="project-modal-img">
-                <div class="project-modal-text">
-                    <h2>TF-IDF Search Engine</h2>
-                    <p class="project-description">A distributed search engine built from scratch using TF-IDF ranking.
-                        Crawls websites, builds an inverted index, and serves search results through a web interface.
-                        Built with Python, Node.js (Express), and MongoDB Atlas to understand classical information
-                        retrieval and distributed system design.</p>
-                    <div class="project-links">
-                        <a href="https://github.com/KaunAnkit/tfidf-search-engine" target="_blank"
-                            class="btn-link github">
-                            <span class="material-symbols-outlined">code</span>
-                            GitHub
-                        </a>
-                        <a href="https://kaunankit.github.io/tfidf-search-engine/" target="_blank"
-                            class="btn-link demo">
-                            <span class="material-symbols-outlined">open_in_new</span>
-                            Try it Yourself
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+  <div id="modal" class="modal" role="dialog" aria-modal="true">
+    <button class="close" aria-label="Close">&times;</button>
+    <img class="modal-content" id="modal-img" alt="Certificate">
+  </div>
 
-    <div id="parchmentModal" class="project-modal">
-        <div class="project-modal-content">
-            <span class="close-project-modal">&times;</span>
-            <div class="project-modal-inner">
-                <img src="/Assests/parchment.png" alt="Parchment AI Research Web" class="project-modal-img">
-                <div class="project-modal-text">
-                    <h2>Parchment | Research Intelligence</h2>
-                    <p class="project-description">AI-powered web app that analyzes research PDFs with intelligent chunking, summarization, and flashcard generation using FastAPI and Groq API. It provides structural extraction of manuscript input, identifying background, contributions, methodology, key results, and future work.</p>
-                    <div class="project-links">
-                        <a href="https://github.com/KaunAnkit/ai-reasearch-web" target="_blank"
-                            class="btn-link github">
-                            <span class="material-symbols-outlined">code</span>
-                            GitHub
-                        </a>
-                        <a href="https://parchment-ai.onrender.com/" target="_blank"
-                            class="btn-link demo">
-                            <span class="material-symbols-outlined">open_in_new</span>
-                            Live Demo
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="mllibModal" class="project-modal">
-        <div class="project-modal-content">
-            <span class="close-project-modal">&times;</span>
-            <div class="project-modal-inner">
-                <img src="/Assests/mllib.png" alt="ML-lib" class="project-modal-img">
-                <div class="project-modal-text">
-                    <h2>ML-lib (Codex)</h2>
-                    <p class="project-description">A simple machine learning library for building regression and classification models with data preprocessing utilities. It includes implementations for linear regression, KNN (regressor & classifier), logistic regression, and essential tools like feature scaling (Standard/MinMax), evaluation metrics (MSE, Accuracy), and data splitting.</p>
-                    <div class="project-links">
-                        <a href="https://github.com/KaunAnkit/ML-Library" target="_blank"
-                            class="btn-link github">
-                            <span class="material-symbols-outlined">code</span>
-                            GitHub
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div id="modal" class="modal">
-        <span class="close">&times;</span>
-        <img class="modal-content" id="modal-img">
-    </div>
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
-
 </html>
