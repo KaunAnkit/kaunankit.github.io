@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="https://unpkg.com/github-calendar@latest/dist/github-calendar-responsive.css" />
   <script src="https://unpkg.com/github-calendar@latest/dist/github-calendar.min.js"></script>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="LightRays.css">
   <title>Ankit Jha</title>
 </head>
 
@@ -17,6 +18,7 @@
 
     <nav class="Basic" id="navbar">
       <a href="#about">About</a>
+      <a href="#experience">Experience</a>
       <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
       <a href="#cp">Competitive</a>
@@ -25,11 +27,14 @@
       <a href="#contact">Contact</a>
     </nav>
 
+    <div class="hero-section-wrap">
+      <div id="light-rays-mount" class="light-rays-container" aria-hidden="true"></div>
+
     <div class="hero-flex">
       <div class="profile-side">
         <div class="hero-header-vertical">
           <h1 class="profile-name">Ankit Jha</h1>
-          <p class="profile-tagline">Aspiring Software Engineer &amp; ML Researcher</p>
+          <p class="profile-tagline">AI/ML Engineer Intern @ DecX AI</p>
         </div>
         <hr class="profile-hr">
         <div class="links-vertical">
@@ -48,25 +53,25 @@
           <div class="loading">Loading calendar...</div>
         </div>
       </div>
-    </div>
+    </div><!-- /.hero-flex -->
+    </div><!-- /.hero-section-wrap -->
 
     <h2 id="about">About</h2>
     <div class="about-grid">
       <div class="about-text">
         <p>
-          I'm a first-year B.Tech student in Information Technology at Maharaja Surajmal Institute of Technology,
-          New Delhi, with a CGPA of <strong>9.5/10</strong>. I have a strong interest in Artificial Intelligence and its
-          potential to create positive impact — I enjoy learning how software and intelligent systems work behind
-          the scenes and building things that solve real problems.
+          I'm a B.Tech student in Information Technology at Maharaja Surajmal Institute of Technology,
+          New Delhi, with a CGPA of <strong>9.1/10</strong>. Currently working as an AI/ML Engineer Intern
+          at DecX AI, building a B2B proposal intelligence SaaS as the sole technical contributor under the founder.
         </p>
         <p style="margin-top:12px;">
-          My long-term goal is to contribute to humanity by building meaningful solutions using AI. Beyond
-          technology, I have a deep passion for aviation and the wonders of flight.
+          My interest lies in AI systems that solve real problems — from RAG pipelines and ML models to
+          full-stack backends. Beyond technology, I have a deep passion for aviation and the wonders of flight.
         </p>
       </div>
       <div class="about-stats">
         <div class="stat-card">
-          <span class="stat-value">9.5</span>
+          <span class="stat-value">9.1</span>
           <span class="stat-label">CGPA / 10</span>
         </div>
         <div class="stat-card">
@@ -84,6 +89,37 @@
       </div>
     </div>
 
+    <h2 id="experience">Experience</h2>
+    <div class="experience-list">
+      <div class="exp-card">
+        <div class="exp-header">
+          <div class="exp-title-group">
+            <h4 class="exp-role">AI Engineer Intern</h4>
+            <span class="exp-company">DecX AI</span>
+          </div>
+          <div class="exp-meta">
+            <span class="exp-date">Jun 2026 – Present</span>
+            <span class="exp-type">Remote</span>
+          </div>
+        </div>
+        <p class="exp-context">Sole technical builder under the founder · B2B BFSI-focused proposal intelligence SaaS</p>
+        <ul class="exp-bullets">
+          <li>Redesigned the Proposal Room UI into a sequential 9-page, two-section workflow (Setup, Intelligence) that scaffolds AI-generated proposal drafts</li>
+          <li>Engineered a retrieval-augmented generation pipeline — PDF chunking, a FAISS vector store, and Groq-based streaming chat with tool-calling</li>
+          <li>Developed a FastAPI backend for vendor and organizational intelligence, integrating a BSE filings discovery module that parses 20–30 PDFs automatically (annual reports, investor presentations, earnings presentations, ESG reports)</li>
+          <li>Automated evidence-gathering for proposal generation via a LinkedIn scraping pipeline and a multi-agent orchestration layer, replacing manual research steps</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="tag">FastAPI</span>
+          <span class="tag">RAG</span>
+          <span class="tag">FAISS</span>
+          <span class="tag">Groq API</span>
+          <span class="tag">Multi-agent</span>
+          <span class="tag">Python</span>
+        </div>
+      </div>
+    </div>
+
     <h2 id="skills">Skills</h2>
     <div class="skills-container">
       <div class="skills-column">
@@ -93,6 +129,7 @@
           <span class="tag">C</span>
           <span class="tag">C++</span>
           <span class="tag">JavaScript</span>
+          <span class="tag">SQL</span>
           <span class="tag">HTML</span>
           <span class="tag">CSS</span>
         </div>
@@ -101,32 +138,34 @@
         <h4>Web &amp; Backend</h4>
         <div class="skill-tags">
           <span class="tag">FastAPI</span>
+          <span class="tag">Node.js / Express</span>
           <span class="tag">REST APIs</span>
-          <span class="tag">Node.js</span>
           <span class="tag">SQLite</span>
+          <span class="tag">MongoDB</span>
         </div>
       </div>
       <div class="skills-column">
-        <h4>Data &amp; AI</h4>
+        <h4>AI / ML</h4>
         <div class="skill-tags">
           <span class="tag">NumPy</span>
           <span class="tag">Pandas</span>
           <span class="tag">Scikit-learn</span>
+          <span class="tag">Gradient Boosting</span>
           <span class="tag">TF-IDF</span>
-          <span class="tag">LLM Integration</span>
-          <span class="tag">Matplotlib</span>
+          <span class="tag">RAG</span>
+          <span class="tag">FAISS</span>
+          <span class="tag">Groq API</span>
         </div>
       </div>
       <div class="skills-column">
-        <h4>Tools &amp; Concepts</h4>
+        <h4>Core CS &amp; Tools</h4>
         <div class="skill-tags">
+          <span class="tag">DSA</span>
+          <span class="tag">OOP</span>
+          <span class="tag">Information Retrieval</span>
           <span class="tag">Git &amp; GitHub</span>
           <span class="tag">VS Code</span>
           <span class="tag">PyCharm</span>
-          <span class="tag">OOP</span>
-          <span class="tag">DSA</span>
-          <span class="tag">Prompt Engineering</span>
-          <span class="tag">Information Retrieval</span>
         </div>
       </div>
     </div>
@@ -144,15 +183,22 @@
         <h5>Parchment</h5>
         <h5>AI Research Web</h5>
       </div>
-      <div class="box project-box" id="mllib-box">
-        <img src="/Assests/mllib.png" alt="ML Library" loading="lazy">
-        <h5>ML-lib</h5>
-        <h5>ML Library</h5>
+      <div class="box project-box" id="fifa-box">
+        <img src="/Assests/fifa.png" alt="FIFA World Cup Prediction" loading="lazy">
+        <h5>FIFA WC</h5>
+        <h5>Prediction</h5>
       </div>
     </div>
 
     <h3>Side Quest</h3>
     <div class="boxContainer">
+      <a href="https://github.com/KaunAnkit/ML-Library" target="_blank" rel="noopener noreferrer">
+        <div class="box">
+          <img src="/Assests/mllib.png" alt="ML Library" loading="lazy">
+          <h5>ML-lib</h5>
+          <h5>ML Library</h5>
+        </div>
+      </a>
       <a href="https://github.com/KaunAnkit/linear-regression-gradient-descent" target="_blank" rel="noopener noreferrer">
         <div class="box">
           <img src="/Assests/linear-reg.png" alt="Linear Regression" loading="lazy">
@@ -289,9 +335,9 @@
         <div class="project-modal-text">
           <h2>TF-IDF Search Engine</h2>
           <div class="modal-tags">
-            <span class="tag">Python</span><span class="tag">Node.js</span><span class="tag">SQLite</span><span class="tag">TF-IDF</span>
+            <span class="tag">Python</span><span class="tag">Node.js</span><span class="tag">MongoDB</span><span class="tag">TF-IDF</span>
           </div>
-          <p class="project-description">Built an information retrieval system from scratch using TF-IDF scoring, inverted indexing, and a BFS-based web crawler. Stored the document corpus and index metadata in SQLite and exposed ranked query results via a CLI and web interface.</p>
+          <p class="project-description">Implemented a search engine from scratch — BFS web crawler, inverted index, and TF-IDF ranking — across Python, Node.js, and MongoDB. Scaled the index from 200 to 1,400 pages, extensible to 5,000–6,000 pages within a 512 MB memory limit. Added real-time autocomplete without loading 250k+ terms into memory.</p>
           <div class="project-links">
             <a href="https://github.com/KaunAnkit/tfidf-search-engine" target="_blank" rel="noopener noreferrer" class="btn-link github">
               <span class="material-symbols-outlined">code</span> GitHub
@@ -309,13 +355,13 @@
     <div class="project-modal-content">
       <button class="close-project-modal" aria-label="Close">&times;</button>
       <div class="project-modal-inner">
-        <img src="/Assests/parchment.png" alt="Parchment AI Research Web" class="project-modal-img" loading="lazy">
+        <img src="/Assests/parchment.png" alt="AI Research Paper Analyzer" class="project-modal-img" loading="lazy">
         <div class="project-modal-text">
-          <h2>Parchment | Research Intelligence</h2>
+          <h2>AI Research Paper Analyzer</h2>
           <div class="modal-tags">
-            <span class="tag">FastAPI</span><span class="tag">Groq API</span><span class="tag">HTML/CSS/JS</span><span class="tag">Prompt Engineering</span>
+            <span class="tag">FastAPI</span><span class="tag">Groq API</span><span class="tag">PyMuPDF</span><span class="tag">Prompt Engineering</span>
           </div>
-          <p class="project-description">Modular FastAPI backend with service-based architecture for PDF ingestion and LLM-driven processing. Implements a document chunking pipeline integrated with Groq API for automated summarization and flashcard generation. Applied prompt engineering to improve output quality with an end-to-end interactive frontend.</p>
+          <p class="project-description">Designed a modular FastAPI backend that chunks PDFs and calls the Groq API to generate summaries and flashcards of research papers. Refined LLM prompts to improve summary relevance and shipped an interactive frontend for paper review.</p>
           <div class="project-links">
             <a href="https://github.com/KaunAnkit/ai-reasearch-web" target="_blank" rel="noopener noreferrer" class="btn-link github">
               <span class="material-symbols-outlined">code</span> GitHub
@@ -329,19 +375,19 @@
     </div>
   </div>
 
-  <div id="mllibModal" class="project-modal" role="dialog" aria-modal="true">
+  <div id="fifaModal" class="project-modal" role="dialog" aria-modal="true">
     <div class="project-modal-content">
       <button class="close-project-modal" aria-label="Close">&times;</button>
       <div class="project-modal-inner">
-        <img src="/Assests/mllib.png" alt="ML-lib" class="project-modal-img" loading="lazy">
+        <img src="/Assests/fifa.png" alt="FIFA World Cup Prediction" class="project-modal-img" loading="lazy">
         <div class="project-modal-text">
-          <h2>ML-lib (Codex)</h2>
+          <h2>FIFA World Cup 2026 Predictor</h2>
           <div class="modal-tags">
-            <span class="tag">Python</span><span class="tag">NumPy</span><span class="tag">From Scratch</span>
+            <span class="tag">Python</span><span class="tag">Scikit-learn</span><span class="tag">Gradient Boosting</span><span class="tag">Elo Ratings</span>
           </div>
-          <p class="project-description">Implemented Linear Regression, Logistic Regression, and K-Nearest Neighbors in NumPy without ML frameworks. Built custom gradient descent, loss functions, and evaluation metrics with a sklearn-style modular API including feature scaling (Standard/MinMax) and data splitting utilities.</p>
+          <p class="project-description">Assembled a supervised learning pipeline over 25 years of international match data merged with Elo ratings, engineering predictive features. Trained a HistGradientBoostingRegressor model, then simulated full tournament brackets from the outputs.</p>
           <div class="project-links">
-            <a href="https://github.com/KaunAnkit/ML-Library" target="_blank" rel="noopener noreferrer" class="btn-link github">
+            <a href="https://github.com/KaunAnkit/fifa-wc-prediction" target="_blank" rel="noopener noreferrer" class="btn-link github">
               <span class="material-symbols-outlined">code</span> GitHub
             </a>
           </div>
@@ -350,11 +396,13 @@
     </div>
   </div>
 
+
   <div id="modal" class="modal" role="dialog" aria-modal="true">
     <button class="close" aria-label="Close">&times;</button>
     <img class="modal-content" id="modal-img" alt="Certificate">
   </div>
 
+  <script src="LightRays.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

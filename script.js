@@ -1,5 +1,24 @@
 document.addEventListener('DOMContentLoaded', function () {
 
+  /* ── LightRays ─────────────────────────────────────────────── */
+  const lrMount = document.getElementById('light-rays-mount');
+  if (lrMount && window.LightRays) {
+    new window.LightRays(lrMount, {
+      raysOrigin:     'top-center',
+      raysColor:      '#00ffff',
+      raysSpeed:      1.5,
+      lightSpread:    1.0,
+      rayLength:      1.5,
+      followMouse:    true,
+      mouseInfluence: 0.1,
+      noiseAmount:    0.1,
+      distortion:     0.05,
+      pulsating:      false,
+      fadeDistance:   1.2,
+      saturation:     1.0,
+    });
+  }
+
   const yearEl = document.getElementById('footer-year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
@@ -23,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const projectMap = {
     'tfidf-box':     'projectModal',
     'parchment-box': 'parchmentModal',
-    'mllib-box':     'mllibModal',
+    'fifa-box':      'fifaModal',
   };
 
   document.querySelectorAll('.project-box').forEach(box => {
@@ -199,11 +218,11 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     const levelColors = {
-      '0': '#161b22',
-      '1': '#0e4429',
-      '2': '#006d32',
-      '3': '#26a641',
-      '4': '#39d353',
+      '0': '#1a1a1a',
+      '1': '#1a3326',
+      '2': '#1e5c3a',
+      '3': '#2d8f55',
+      '4': '#40c06a',
     };
 
     svg.querySelectorAll('rect.ContributionCalendar-day, rect.day').forEach(rect => {
